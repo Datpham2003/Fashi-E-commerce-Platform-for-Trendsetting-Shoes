@@ -7,19 +7,23 @@ package controller;
 
 import dao.ProductDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import model.category;
+import model.brand;
 import model.product;
+import model.productSize;
 
 /**
  *
  * @author quang
  */
-public class HomeControl extends HttpServlet {
+@WebServlet(name="ShopController", urlPatterns={"/shop"})
+public class ShopController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,12 +36,18 @@ public class HomeControl extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ProductDAO dao = new ProductDAO();
-        List<product> listM = dao.getTopFourMenProduct();
-        List<product> listW = dao.getTopFourWomenProduct();
+        List<category> listC = dao.getAllCategory();
+        List<brand> listB = dao.getAllBrand();
+        List<product> listP = dao.getAllProduct();
+        List<productSize> listPS = dao.getAllProductSize();
         
-        request.setAttribute("listM", listM);
-        request.setAttribute("listW", listW);
-        request.getRequestDispatcher("Home.jsp").forward(request, response); 
+        request.setAttribute("listC", listC);
+        request.setAttribute("listB", listB);
+        request.setAttribute("listP", listP);
+        request.setAttribute("listPS", listPS);
+        request.getRequestDispatcher("Shop.jsp").forward(request, response);
+        
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

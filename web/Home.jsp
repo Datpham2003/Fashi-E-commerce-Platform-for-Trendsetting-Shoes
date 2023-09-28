@@ -126,8 +126,8 @@
                                 </ul>
                             </div>
                             <div class="product-slider owl-carousel">
-                                <div class="product-item">   
-                                <c:forEach items="${listW}" var="o">
+                            <c:forEach items="${listW}" var="o">
+                                <div class="product-item">                                
                                     <div class="pi-pic">                                       
                                         <img src="${o.product_image}" alt="">
                                         <div class="sale">Sale</div>
@@ -146,77 +146,11 @@
                                             <h5>${o.product_name}</h5>
                                         </a>
                                         <div class="product-price">
-                                            ${o.product_price}
+                                            $${o.product_price}
                                         </div>
                                     </div>
-                                </c:forEach>    
-                            </div>
-                            <!--                        <div class="product-item">
-                                                        <div class="pi-pic">
-                                                            <img src="img/products/women-2.jpg" alt="">
-                                                            <div class="icon">
-                                                                <i class="icon_heart_alt"></i>
-                                                            </div>
-                                                            <ul>
-                                                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="pi-text">
-                                                            <div class="catagory-name">Shoes</div>
-                                                            <a href="#">
-                                                                <h5>Guangzhou sweater</h5>
-                                                            </a>
-                                                            <div class="product-price">
-                                                                $13.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-item">
-                                                        <div class="pi-pic">
-                                                            <img src="img/products/women-3.jpg" alt="">
-                                                            <div class="icon">
-                                                                <i class="icon_heart_alt"></i>
-                                                            </div>
-                                                            <ul>
-                                                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="pi-text">
-                                                            <div class="catagory-name">Towel</div>
-                                                            <a href="#">
-                                                                <h5>Pure Pineapple</h5>
-                                                            </a>
-                                                            <div class="product-price">
-                                                                $34.00
-                                                            </div>
-                                                        </div>
-                                                    </div>-->
-                            <!--                        <div class="product-item">
-                                                        <div class="pi-pic">
-                                                            <img src="img/products/women-4.jpg" alt="">
-                                                            <div class="icon">
-                                                                <i class="icon_heart_alt"></i>
-                                                            </div>
-                                                            <ul>
-                                                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="pi-text">
-                                                            <div class="catagory-name">Towel</div>
-                                                            <a href="#">
-                                                                <h5>Converse Shoes</h5>
-                                                            </a>
-                                                            <div class="product-price">
-                                                                $34.00
-                                                            </div>
-                                                        </div>
-                                                    </div>-->
+                                </div>
+                            </c:forEach> 
                         </div>
                     </div>
                 </div>
@@ -275,279 +209,280 @@
                             </ul>
                         </div>
                         <div class="product-slider owl-carousel">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="img/products/man-1.jpg" alt="">
-                                    <div class="sale">Sale</div>
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
+                            <c:forEach items="${listM}" var="o">
+                                <div class="product-item">
+                                    <div class="pi-pic">
+                                        <img src="${o.product_image}" alt="">
+                                        <div class="sale">Sale</div>
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
+                                        </div>
+                                        <ul>
+                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                        </ul>
                                     </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Coat</div>
-                                    <a href="#">
-                                        <h5>Pure Pineapple</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $14.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="img/products/man-2.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Shoes</div>
-                                    <a href="#">
-                                        <h5>Guangzhou sweater</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $13.00
+                                    <div class="pi-text">
+                                        <div class="catagory-name">Coat</div>
+                                        <a href="#">
+                                            <h5>${o.product_name}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            $${o.product_price}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="img/products/man-3.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Towel</div>
-                                    <a href="#">
-                                        <h5>Pure Pineapple</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $34.00
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="img/products/man-4.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Towel</div>
-                                    <a href="#">
-                                        <h5>Converse Shoes</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $34.00
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="product-large set-bg m-large" data-setbg="img/products/man-large.jpg">
-                            <h2>Men’s</h2>
-                            <a href="#">Discover More</a>
+                            </c:forEach>
+                            <!--                            <div class="product-item">
+                                                            <div class="pi-pic">
+                                                                <img src="img/products/man-2.jpg" alt="">
+                                                                <div class="icon">
+                                                                    <i class="icon_heart_alt"></i>
+                                                                </div>
+                                                                <ul>
+                                                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="pi-text">
+                                                                <div class="catagory-name">Shoes</div>
+                                                                <a href="#">
+                                                                    <h5>Guangzhou sweater</h5>
+                                                                </a>
+                                                                <div class="product-price">
+                                                                    $13.00
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-item">
+                                                            <div class="pi-pic">
+                                                                <img src="img/products/man-3.jpg" alt="">
+                                                                <div class="icon">
+                                                                    <i class="icon_heart_alt"></i>
+                                                                </div>
+                                                                <ul>
+                                                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="pi-text">
+                                                                <div class="catagory-name">Towel</div>
+                                                                <a href="#">
+                                                                    <h5>Pure Pineapple</h5>
+                                                                </a>
+                                                                <div class="product-price">
+                                                                    $34.00
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-item">
+                                                            <div class="pi-pic">
+                                                                <img src="img/products/man-4.jpg" alt="">
+                                                                <div class="icon">
+                                                                    <i class="icon_heart_alt"></i>
+                                                                </div>
+                                                                <ul>
+                                                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="pi-text">
+                                                                <div class="catagory-name">Towel</div>
+                                                                <a href="#">
+                                                                    <h5>Converse Shoes</h5>
+                                                                </a>
+                                                                <div class="product-price">
+                                                                    $34.00
+                                                                </div>-->
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Man Banner Section End -->
-
-        <!-- Instagram Section Begin -->
-        <div class="instagram-photo">
-            <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
-                <div class="inside-text">
-                    <i class="ti-instagram"></i>
-                    <h5><a href="#">colorlib_Collection</a></h5>
-                </div>
-            </div>
-            <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
-                <div class="inside-text">
-                    <i class="ti-instagram"></i>
-                    <h5><a href="#">colorlib_Collection</a></h5>
-                </div>
-            </div>
-            <div class="insta-item set-bg" data-setbg="img/insta-3.jpg">
-                <div class="inside-text">
-                    <i class="ti-instagram"></i>
-                    <h5><a href="#">colorlib_Collection</a></h5>
-                </div>
-            </div>
-            <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
-                <div class="inside-text">
-                    <i class="ti-instagram"></i>
-                    <h5><a href="#">colorlib_Collection</a></h5>
-                </div>
-            </div>
-            <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
-                <div class="inside-text">
-                    <i class="ti-instagram"></i>
-                    <h5><a href="#">colorlib_Collection</a></h5>
-                </div>
-            </div>
-            <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
-                <div class="inside-text">
-                    <i class="ti-instagram"></i>
-                    <h5><a href="#">colorlib_Collection</a></h5>
+            <div class="col-lg-3 offset-lg-2">
+                <div class="product-large set-bg m-small" data-setbg="img/products/man-large.jpg">
+                    <h2>Men’s</h2>
+                    <a href="#">Discover More</a>
                 </div>
             </div>
         </div>
-        <!-- Instagram Section End -->
+    </div>
+</section>
+<!-- Man Banner Section End -->
 
-        <!-- Latest Blog Section Begin -->
-        <section class="latest-blog spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">
-                            <h2>From The Blog</h2>
+<!-- Instagram Section Begin -->
+<div class="instagram-photo">
+    <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">colorlib_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">colorlib_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="img/insta-3.jpg">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">colorlib_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">colorlib_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">colorlib_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">colorlib_Collection</a></h5>
+        </div>
+    </div>
+</div>
+<!-- Instagram Section End -->
+
+<!-- Latest Blog Section Begin -->
+<section class="latest-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>From The Blog</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-blog">
+                    <img src="img/latest-1.jpg" alt="">
+                    <div class="latest-text">
+                        <div class="tag-list">
+                            <div class="tag-item">
+                                <i class="fa fa-calendar-o"></i>
+                                May 4,2019
+                            </div>
+                            <div class="tag-item">
+                                <i class="fa fa-comment-o"></i>
+                                5
+                            </div>
+                        </div>
+                        <a href="#">
+                            <h4>The Best Street Style From London Fashion Week</h4>
+                        </a>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-blog">
+                    <img src="img/latest-2.jpg" alt="">
+                    <div class="latest-text">
+                        <div class="tag-list">
+                            <div class="tag-item">
+                                <i class="fa fa-calendar-o"></i>
+                                May 4,2019
+                            </div>
+                            <div class="tag-item">
+                                <i class="fa fa-comment-o"></i>
+                                5
+                            </div>
+                        </div>
+                        <a href="#">
+                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
+                        </a>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-blog">
+                    <img src="img/latest-3.jpg" alt="">
+                    <div class="latest-text">
+                        <div class="tag-list">
+                            <div class="tag-item">
+                                <i class="fa fa-calendar-o"></i>
+                                May 4,2019
+                            </div>
+                            <div class="tag-item">
+                                <i class="fa fa-comment-o"></i>
+                                5
+                            </div>
+                        </div>
+                        <a href="#">
+                            <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
+                        </a>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="benefit-items">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="img/icon-1.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6>Free Shipping</h6>
+                            <p>For all order over 99$</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-latest-blog">
-                            <img src="img/latest-1.jpg" alt="">
-                            <div class="latest-text">
-                                <div class="tag-list">
-                                    <div class="tag-item">
-                                        <i class="fa fa-calendar-o"></i>
-                                        May 4,2019
-                                    </div>
-                                    <div class="tag-item">
-                                        <i class="fa fa-comment-o"></i>
-                                        5
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4>The Best Street Style From London Fashion Week</h4>
-                                </a>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                            </div>
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="img/icon-2.png" alt="">
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-latest-blog">
-                            <img src="img/latest-2.jpg" alt="">
-                            <div class="latest-text">
-                                <div class="tag-list">
-                                    <div class="tag-item">
-                                        <i class="fa fa-calendar-o"></i>
-                                        May 4,2019
-                                    </div>
-                                    <div class="tag-item">
-                                        <i class="fa fa-comment-o"></i>
-                                        5
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
-                                </a>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-latest-blog">
-                            <img src="img/latest-3.jpg" alt="">
-                            <div class="latest-text">
-                                <div class="tag-list">
-                                    <div class="tag-item">
-                                        <i class="fa fa-calendar-o"></i>
-                                        May 4,2019
-                                    </div>
-                                    <div class="tag-item">
-                                        <i class="fa fa-comment-o"></i>
-                                        5
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
-                                </a>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                            </div>
+                        <div class="sb-text">
+                            <h6>Delivery On Time</h6>
+                            <p>If good have prolems</p>
                         </div>
                     </div>
                 </div>
-                <div class="benefit-items">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="single-benefit">
-                                <div class="sb-icon">
-                                    <img src="img/icon-1.png" alt="">
-                                </div>
-                                <div class="sb-text">
-                                    <h6>Free Shipping</h6>
-                                    <p>For all order over 99$</p>
-                                </div>
-                            </div>
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="img/icon-1.png" alt="">
                         </div>
-                        <div class="col-lg-4">
-                            <div class="single-benefit">
-                                <div class="sb-icon">
-                                    <img src="img/icon-2.png" alt="">
-                                </div>
-                                <div class="sb-text">
-                                    <h6>Delivery On Time</h6>
-                                    <p>If good have prolems</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="single-benefit">
-                                <div class="sb-icon">
-                                    <img src="img/icon-1.png" alt="">
-                                </div>
-                                <div class="sb-text">
-                                    <h6>Secure Payment</h6>
-                                    <p>100% secure payment</p>
-                                </div>
-                            </div>
+                        <div class="sb-text">
+                            <h6>Secure Payment</h6>
+                            <p>100% secure payment</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Latest Blog Section End -->
+        </div>
+    </div>
+</section>
+<!-- Latest Blog Section End -->
 
-        <jsp:include page="bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
 
-        <!-- Js Plugins -->
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/jquery.countdown.min.js"></script>
-        <script src="js/jquery.nice-select.min.js"></script>
-        <script src="js/jquery.zoom.min.js"></script>
-        <script src="js/jquery.dd.min.js"></script>
-        <script src="js/jquery.slicknav.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="js/jquery.dd.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+</body>
 
 </html>

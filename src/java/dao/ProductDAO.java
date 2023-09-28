@@ -9,7 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.brand;
+import model.category;
 import model.product;
+import model.productSize;
 
 /**
  *
@@ -80,13 +83,59 @@ public class ProductDAO extends DBContext{
         }
         return list;
     }
-
-//    public static void main(String[] args){
-//        ProductDAO dao = new ProductDAO();
-//        List<product> list = dao.getTopFourWomenProduct();
-//        for (product o : list) {
-//            System.out.println(o);
-//      }    
-//    }
+    
+    public List<category> getAllCategory() {
+        List<category> list = new ArrayList<>();
+        String sql = "select *from Category";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new category(rs.getInt(1),
+                        rs.getString(2)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public List<brand> getAllBrand() {
+        List<brand> list = new ArrayList<>();
+        String sql = "select *from Brand";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new brand(rs.getInt(1),
+                        rs.getString(2)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+        public List<productSize> getAllProductSize() {
+        List<productSize> list = new ArrayList<>();
+        String sql = "select DISTINCT size from Product_Size";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new productSize(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public static void main(String[] args){
+        ProductDAO dao = new ProductDAO();
+        List<productSize> list = dao.getAllProductSize();
+        for (productSize o : list) {
+            System.out.println(o);
+      }    
+    }
 }
 
