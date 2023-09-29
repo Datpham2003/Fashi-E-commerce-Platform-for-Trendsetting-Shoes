@@ -39,7 +39,7 @@ public class ShopController extends HttpServlet {
         List<category> listC = dao.getAllCategory();
         List<brand> listB = dao.getAllBrand();
         List<product> listP = dao.getAllProduct();
-        List<productSize> listPS = dao.getAllProductSize();
+        List<String> listPS = dao.getAllProductSizes();
         
         request.setAttribute("listC", listC);
         request.setAttribute("listB", listB);
