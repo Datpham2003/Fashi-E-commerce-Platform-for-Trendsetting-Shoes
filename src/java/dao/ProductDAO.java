@@ -138,11 +138,49 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
+    public product getProductByID(String id) {
+        String sql = "select *from Product where product_id = ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<productSize> getProductSizeByID(String id) {
+        List<productSize> list = new ArrayList<>();
+        String sql = "select *from Product_Size where product_id = ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new productSize(rs.getInt(1), 
+                        rs.getInt(2), 
+                        rs.getInt(3), 
+                        rs.getInt(4)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
 //    public static void main(String[] args) {
 //        ProductDAO dao = new ProductDAO();
-//        List<String> list = dao.getAllProductSizes();
-//        for (String string : list) {
-//            System.out.println(string);
+//        List<productSize> list = dao.getProductSizeByID("1");
+//        for (productSize size : list) {
+//            System.out.println(size);
 //        }
 //    }
 }
