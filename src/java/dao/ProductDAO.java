@@ -4,6 +4,7 @@
  */
 package dao;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -175,12 +176,36 @@ public class ProductDAO extends DBContext {
         }
         return list;
     }
+    
+     public List<product> getProductByBrandID(String[] ids) {
+        List<product> list = new ArrayList<>();
+        String sql = "SELECT name FROM Product WHERE id IN (:?)";
+        try {
+            ps = connection.prepareStatement(sql);
+            Array idArr = connection.createArrayOf("VARCHAR", ids);
+            ps.setArray(1, idArr);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+              list.add(new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7))); 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
-//    public static void main(String[] args) {
-//        ProductDAO dao = new ProductDAO();
-//        List<productSize> list = dao.getProductSizeByID("1");
-//        for (productSize size : list) {
-//            System.out.println(size);
-//        }
-//    }
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        String[] ids = {"1","2","3"};
+        List<product> list = dao.getProductByBrandID(ids);
+        for (product p : list) {
+            System.out.println(p);
+        }
+    }
 }

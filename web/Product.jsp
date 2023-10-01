@@ -223,24 +223,6 @@
                                                         <div class="p-stock">22 in stock</div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Size</td>
-                                                    <c:forEach items="${listS}" var="o">
-                                                        <td>
-                                                            <div class="size">${o.size}</div>
-                                                        </td>
-                                                    </c:forEach>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Color</td>
-                                                    <td><span class="cs-color"></span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Sku</td>
-                                                    <td>
-                                                        <div class="p-code">00012</div>
-                                                    </td>
-                                                </tr>
                                             </table>
                                         </div>
                                     </div>
