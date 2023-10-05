@@ -9,12 +9,13 @@ package model;
  * @author quang
  */
 public class brand {
+
     private int brand_id;
     private String brand_name;
 
     public brand() {
     }
-       
+
     public brand(int brand_id, String brand_name) {
         this.brand_id = brand_id;
         this.brand_name = brand_name;
@@ -40,5 +41,5 @@ public class brand {
     public String toString() {
         return "brand{" + "brand_id=" + brand_id + ", brand_name=" + brand_name + '}';
     }
-    
+
 }

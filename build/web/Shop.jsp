@@ -71,11 +71,9 @@
                                     <div class="bc-item">
                                         <label for="bc-calvin">
                                             ${o.brand_name}
-                                            <input type="checkbox" id="${o.brand_id}" onchange="document.getElementById('hidden_${o.brand_id}').style.display = this.checked ? 'block' : 'none';>
+                                            <input type="checkbox" id="${o.brand_id}" name="brand_id">
                                             <span class="checkmark"></span>
-                                            
                                         </label>
-                                             <input type="hidden" id="hidden_${o.brand_id}" style="display:none;" name="brandId" value="${o.brand_id}">
                                     </div>
                                 </c:forEach>            
                             </div>
@@ -98,7 +96,7 @@
                             </div>
                             <a href="#" class="filter-btn">Filter</a>
                         </div>
-                        
+
                         <div class="filter-widget">
                             <h4 class="fw-title">Size</h4>
                             <div class="fw-size-choose">
@@ -149,7 +147,7 @@
                                                 </ul>
                                             </div>
                                             <div class="pi-text">
-                                                <div class="catagory-name">Towel</div>
+                                                <div class="catagory-name"></div>
                                                 <a href="detail?id=${o.product_id}">
                                                     <h5>${o.product_name}</h5>
                                                 </a>
@@ -163,12 +161,12 @@
                             </div>
                         </div>
                     </div>
-<!--                    <div class="loading-more">
-                        <i class="icon_loading"></i>
-                        <a href="#">
-                            Loading More
-                        </a>
-                    </div>-->
+                    <!--                    <div class="loading-more">
+                                            <i class="icon_loading"></i>
+                                            <a href="#">
+                                                Loading More
+                                            </a>
+                                        </div>-->
                 </div>
             </div>
         </div>

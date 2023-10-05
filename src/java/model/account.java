@@ -9,8 +9,9 @@ package model;
  * @author acer
  */
 public class account {
-    private String  username ;
-    private String  password ;      
+
+    private String username;
+    private String password;
 
     public account() {
     }
@@ -20,7 +21,6 @@ public class account {
         this.password = password;
     }
 
-    
     public String getUsername() {
         return username;
     }
@@ -41,6 +41,5 @@ public class account {
     public String toString() {
         return "account{" + "username=" + username + ", password=" + password + '}';
     }
-    
-    
+
 }

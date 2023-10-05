@@ -9,6 +9,7 @@ package model;
  * @author quang
  */
 public class product {
+
     private int product_id;
     private String product_image;
     private String product_name;
@@ -90,5 +91,5 @@ public class product {
     public String toString() {
         return "product{" + "product_id=" + product_id + ", product_image=" + product_image + ", product_name=" + product_name + ", product_price=" + product_price + ", product_description=" + product_description + ", cid=" + cid + ", brand_id=" + brand_id + '}';
     }
-    
+
 }

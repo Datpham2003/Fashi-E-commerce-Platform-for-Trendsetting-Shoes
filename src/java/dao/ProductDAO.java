@@ -167,17 +167,17 @@ public class ProductDAO extends DBContext {
             ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new productSize(rs.getInt(1), 
-                        rs.getInt(2), 
-                        rs.getInt(3), 
+                list.add(new productSize(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
                         rs.getInt(4)));
             }
         } catch (Exception e) {
         }
         return list;
     }
-    
-     public List<product> getProductByBrandID(String[] ids) {
+
+    public List<product> getProductByBrandID(String[] ids) {
         List<product> list = new ArrayList<>();
         String sql = "SELECT name FROM Product WHERE id IN (:?)";
         try {
@@ -186,13 +186,13 @@ public class ProductDAO extends DBContext {
             ps.setArray(1, idArr);
             rs = ps.executeQuery();
             while (rs.next()) {
-              list.add(new product(rs.getInt(1),
+                list.add(new product(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7))); 
+                        rs.getInt(7)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -202,7 +202,7 @@ public class ProductDAO extends DBContext {
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        String[] ids = {"1","2","3"};
+        String[] ids = {"1", "2", "3"};
         List<product> list = dao.getProductByBrandID(ids);
         for (product p : list) {
             System.out.println(p);

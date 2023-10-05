@@ -9,6 +9,7 @@ package model;
  * @author quang
  */
 public class productSize {
+
     private int productSize_id;
     private int product_id;
     private int size;
@@ -60,5 +61,5 @@ public class productSize {
     public String toString() {
         return "ProductSize{" + "productSize_id=" + productSize_id + ", product_id=" + product_id + ", size=" + size + ", quantity=" + quantity + '}';
     }
-    
+
 }

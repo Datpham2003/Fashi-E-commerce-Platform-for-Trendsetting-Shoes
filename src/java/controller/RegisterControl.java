@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package controller;
 
 import dao.LoginDAO;
@@ -19,42 +18,44 @@ import model.account;
  *
  * @author acer
  */
-@WebServlet(name="RegisterControl", urlPatterns={"/RegisterControl"})
+@WebServlet(name = "RegisterControl", urlPatterns = {"/RegisterControl"})
 public class RegisterControl extends HttpServlet {
-   
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String user = request.getParameter("username");
         String pass = request.getParameter("pass");
         String cofpass = request.getParameter("cofpass");
-        if(!pass.equals(cofpass)){
+        if (!pass.equals(cofpass)) {
             response.sendRedirect("Register.jsp");
-        }else{
+        } else {
             LoginDAO LoginDAO = new LoginDAO();
             account a = LoginDAO.checkAccount(user);
-            if(a==null){
-               LoginDAO.signUp(user, pass);
-               response.sendRedirect("Login.jsp");
-            }else{
+            if (a == null) {
+                LoginDAO.signUp(user, pass);
+                response.sendRedirect("Login.jsp");
+            } else {
                 response.sendRedirect("Register.jsp");
             }
         }
 
-        
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -62,12 +63,13 @@ public class RegisterControl extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
-    } 
+    }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -75,12 +77,13 @@ public class RegisterControl extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override
