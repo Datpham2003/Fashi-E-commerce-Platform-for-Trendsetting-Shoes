@@ -136,23 +136,23 @@
 
                                         <div class="product-item">
                                             <div class="pi-pic">
-                                                <img src="${o.product_image}" alt="">
+                                                <img src="${o.product_image}" alt="" href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">
                                                 <div class="icon">
                                                     <i class="icon_heart_alt"></i>
                                                 </div>
                                                 <ul>
                                                     <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                    <li class="quick-view"><a href="detail?id=${o.product_id}">+ Quick View</a></li>
+                                                    <li class="quick-view"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">+ Quick View</a></li>
                                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="pi-text">
                                                 <div class="catagory-name"></div>
-                                                <a href="detail?id=${o.product_id}">
+                                                <a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">
                                                     <h5>${o.product_name}</h5>
                                                 </a>
                                                 <div class="product-price">
-                                                    $${o.product_price}
+                                                   $${o.product_price}
                                                 </div>
                                             </div>
                                         </div>
@@ -161,12 +161,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--                    <div class="loading-more">
-                                            <i class="icon_loading"></i>
-                                            <a href="#">
-                                                Loading More
-                                            </a>
-                                        </div>-->
                 </div>
             </div>
         </div>

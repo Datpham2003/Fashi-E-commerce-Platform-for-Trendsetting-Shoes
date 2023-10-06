@@ -41,6 +41,7 @@ public class ProductDAO extends DBContext {
                         rs.getInt(7)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -61,6 +62,7 @@ public class ProductDAO extends DBContext {
                         rs.getInt(7)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -81,6 +83,7 @@ public class ProductDAO extends DBContext {
                         rs.getInt(7)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -96,6 +99,7 @@ public class ProductDAO extends DBContext {
                         rs.getString(2)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -111,6 +115,7 @@ public class ProductDAO extends DBContext {
                         rs.getString(2)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -133,6 +138,7 @@ public class ProductDAO extends DBContext {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
 
         }
 
@@ -155,6 +161,7 @@ public class ProductDAO extends DBContext {
                         rs.getInt(7));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -173,6 +180,7 @@ public class ProductDAO extends DBContext {
                         rs.getInt(4)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -200,12 +208,37 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
+    public List<product> getTopRelatedProduct(String bid, String cid) {
+        List<product> list = new ArrayList<>();
+        String sql = "SELECT TOP 4 *\n"
+                + "FROM Product\n"
+                + "WHERE brand_id = ? and category_id = ?\n"
+                + "ORDER BY NEWID()";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, bid);
+            ps.setString(2, cid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        String[] ids = {"1", "2", "3"};
-        List<product> list = dao.getProductByBrandID(ids);
-        for (product p : list) {
-            System.out.println(p);
+        List<product> list = dao.getTopRelatedProduct("1", "6");
+        for (product object : list) {
+            System.out.println(object);
         }
     }
 }
