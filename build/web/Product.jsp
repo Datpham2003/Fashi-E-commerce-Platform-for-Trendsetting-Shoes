@@ -139,16 +139,19 @@
                                     <div class="pd-size-choose">
                                         <c:forEach items="${listS}" var="o">
                                             <div class="sc-item">
-                                                <input type="radio" id="sm-size">
+                                                <input type="radio" id="sm-size" name="size" value="${o.size}">
                                                 <label for="size">${o.size}</label>
                                             </div>
                                         </c:forEach>
+                                        
+                                        <c:set var="size" value="${param.size}"></c:set>
                                     </div>
                                     <div class="quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="1">
+                                            <input type="text" value="1" name="quantity">
                                         </div>
-                                        <a href="#" class="primary-btn pd-cart">Add To Cart</a>
+                                        <c:set var="quantity" value="${param.quantity}"></c:set>
+                                        <a href="addcart?id=${detail.product_id}&size=${size}&quantity=${quantity}" class="primary-btn pd-cart">Add To Cart</a>
                                     </div>
                                     <div class="pd-share">
                                         <div class="pd-social">
@@ -321,8 +324,8 @@
                                         <i class="icon_heart_alt"></i>
                                     </div>
                                     <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                        <li class="w-icon active"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}"><i class="icon_bag_alt"></i></a></li>
+                                        <li class="quick-view"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">+ Quick View</a></li>
                                         <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                     </ul>
                                 </div>

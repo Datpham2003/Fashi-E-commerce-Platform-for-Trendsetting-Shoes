@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/src/java/controller/LoginControl.java</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/src/java/controller/AddCartController.java</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/web/ShoppingCart.jsp</file>
             <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/web/Product.jsp</file>
             <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/src/java/dao/ProductDAO.java</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/src/java/controller/DetailController.java</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/src/java/dao/CartDAO.java</file>
             <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/web/Shop.jsp</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponline-vktrung/swp391_shoponline-vktrung/src/java/model/product.java</file>
         </group>
     </open-files>
 </project-private>
