@@ -136,23 +136,25 @@
                                         <p>${detail.product_description}</p>
                                         <h4>$${detail.product_price}</h4>
                                     </div>
-                                    <div class="pd-size-choose">
-                                        <c:forEach items="${listS}" var="o">
-                                            <div class="sc-item">
-                                                <input type="radio" id="sm-size" name="size" value="${o.size}">
-                                                <label for="size">${o.size}</label>
-                                            </div>
-                                        </c:forEach>
-                                        
-                                        <c:set var="size" value="${param.size}"></c:set>
-                                    </div>
-                                    <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1" name="quantity">
+                                    <form action="addcart?id=${detail.product_id}" method="post">
+                                        <div class="pd-size-choose">
+                                            <c:forEach items="${listS}" var="o">
+                                                <div class="sc-item">
+                                                    <input type="radio" id="sm-size" name="size" value="${o.size}">
+                                                    <label for="size">${o.size}</label>
+                                                </div>
+                                            </c:forEach>
+
                                         </div>
-                                        <c:set var="quantity" value="${param.quantity}"></c:set>
-                                        <a href="addcart?id=${detail.product_id}&size=${size}&quantity=${quantity}" class="primary-btn pd-cart">Add To Cart</a>
-                                    </div>
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="number" value="1" name="quantity">
+                                            </div>
+
+                                            <button type="submit" class="primary-btn pd-cart">Add To Cart</button>>
+                                        </div>
+                                    </form>
+
                                     <div class="pd-share">
                                         <div class="pd-social">
                                             <a href="#"><i class="ti-facebook"></i></a>

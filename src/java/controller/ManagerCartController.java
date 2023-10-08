@@ -6,6 +6,7 @@ package controller;
 
 import dao.AccountDAO;
 import dao.CartDAO;
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,15 +15,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 import model.account;
 import model.cart;
+import model.product;
 
 /**
  *
  * @author quang
  */
-@WebServlet(name = "AddCartController", urlPatterns = {"/addcart"})
-public class AddCartController extends HttpServlet {
+@WebServlet(name = "ManagerCartController", urlPatterns = {"/managercart"})
+public class ManagerCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,40 +39,39 @@ public class AddCartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //DAO 
+
         AccountDAO adao = new AccountDAO();
         CartDAO cdao = new CartDAO();
+        ProductDAO pdao = new ProductDAO();
 
-        int productID = Integer.parseInt(request.getParameter("id"));
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
         if (a == null) {
             response.sendRedirect("Login.jsp");
             return;
         }
+
         int account_id = adao.getAccountIDByUsername(a.getUsername());
 
         int customer_id = adao.getCustomerIDByAccountID(account_id);
 
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        List<cart> listC = cdao.getCartByCustomerID(customer_id);
+        List<product> listP = pdao.getAllProduct();
 
-        String size = request.getParameter("size");
-
-        cart cartExisted = cdao.checkCartExist(customer_id, productID);
-
-        int quantityExisted;
-
-        String sizeExisted;
-
-        if (cartExisted != null) {
-            quantityExisted = cartExisted.getQuantity();
-            cdao.editAmountAndSizeCart(productID, (quantityExisted + quantity), customer_id, size);
-            request.getRequestDispatcher("managercart").forward(request, response);
-
-        } else {
-            cdao.insertCart(productID, quantity, customer_id, size);
-            request.getRequestDispatcher("managercart").forward(request, response);
+        double totalMoney = 0;
+        for (cart o : listC) {
+            for (product p : listP) {
+                if (o.getProduct_id() == p.getProduct_id()) {
+                    totalMoney = totalMoney + (o.getQuantity() * p.getProduct_price());
+                }
+            }
         }
+
+        request.setAttribute("ListC", listC);
+        request.setAttribute("listP", listP);
+        request.setAttribute("totalMoney", totalMoney);
+
+        request.getRequestDispatcher("ShoppingCart.jsp").forward(request, response);
 
     }
 
