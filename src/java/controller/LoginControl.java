@@ -52,8 +52,8 @@ public class LoginControl extends HttpServlet {
 
             Cookie u = new Cookie("userC", username);
             Cookie p = new Cookie("passC", password);
-            u.setMaxAge(60);
-            p.setMaxAge(60);
+            u.setMaxAge(Integer.MAX_VALUE);
+            p.setMaxAge(Integer.MAX_VALUE);
             response.addCookie(u);
             response.addCookie(p);
             response.sendRedirect("home");

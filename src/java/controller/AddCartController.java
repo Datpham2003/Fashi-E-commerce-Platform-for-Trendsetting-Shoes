@@ -40,13 +40,15 @@ public class AddCartController extends HttpServlet {
         AccountDAO adao = new AccountDAO();
         CartDAO cdao = new CartDAO();
 
-        int productID = Integer.parseInt(request.getParameter("id"));
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
         if (a == null) {
-            response.sendRedirect("Login.jsp");
+            response.sendRedirect("login");
             return;
         }
+
+        int productID = Integer.parseInt(request.getParameter("id"));
+
         int account_id = adao.getAccountIDByUsername(a.getUsername());
 
         int customer_id = adao.getCustomerIDByAccountID(account_id);

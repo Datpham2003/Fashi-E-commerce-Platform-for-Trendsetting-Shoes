@@ -59,15 +59,15 @@ public class CartDAO extends DBContext {
         }
     }
 
-    public void insertCart(int product_id, int product_quantity, int customer_id, String product_Size) {
-        String query = "insert Cart(accountID, productID, amount,size)\r\n"
+    public void insertCart(int product_id, int product_quantity, int customer_id, String product_size) {
+        String query = "insert Shopping_Cart(product_id, product_quantity, customer_id,product_size)\r\n"
                 + "values(?,?,?,?)";
         try {
             ps = connection.prepareStatement(query);
             ps.setInt(1, product_id);
             ps.setInt(2, product_quantity);
             ps.setInt(3, customer_id);
-            ps.setString(4, product_Size);
+            ps.setString(4, product_size);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,7 +97,10 @@ public class CartDAO extends DBContext {
 
 //    public static void main(String[] args) {
 //        CartDAO dao = new CartDAO();
-//        cart c = dao.checkCartExist(1, 1);
-//        System.out.println(c);
+//        dao.insertCart(2, 2, 1, "43");
+//        List<cart> list = dao.getCartByCustomerID(1);
+//        for (cart object : list) {
+//            System.out.println(object); 
+//        }
 //    }
 }

@@ -47,7 +47,7 @@ public class ManagerCartController extends HttpServlet {
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
         if (a == null) {
-            response.sendRedirect("Login.jsp");
+            response.sendRedirect("login");
             return;
         }
 
@@ -67,7 +67,7 @@ public class ManagerCartController extends HttpServlet {
             }
         }
 
-        request.setAttribute("ListC", listC);
+        request.setAttribute("listC", listC);
         request.setAttribute("listP", listP);
         request.setAttribute("totalMoney", totalMoney);
 
