@@ -6,6 +6,7 @@ package controller;
 
 import dao.AccountDAO;
 import dao.CartDAO;
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.account;
 import model.cart;
+import model.productSize;
 
 /**
  *
@@ -39,15 +41,16 @@ public class AddCartController extends HttpServlet {
         //DAO 
         AccountDAO adao = new AccountDAO();
         CartDAO cdao = new CartDAO();
+        ProductDAO pdao = new ProductDAO();
 
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
         if (a == null) {
-            response.sendRedirect("login");
+            response.sendRedirect("Login.jsp");
             return;
         }
 
-        int productID = Integer.parseInt(request.getParameter("id"));
+        int productID = Integer.parseInt(request.getParameter("pid"));
 
         int account_id = adao.getAccountIDByUsername(a.getUsername());
 
@@ -55,19 +58,16 @@ public class AddCartController extends HttpServlet {
 
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-        String size = request.getParameter("size");
-
-        cart cartExisted = cdao.checkCartExist(customer_id, productID);
+        String size = request.getParameter("size"); 
+        
+        cart cartExisted = cdao.checkCartExist(customer_id, productID, size);
 
         int quantityExisted;
-
-        String sizeExisted;
 
         if (cartExisted != null) {
             quantityExisted = cartExisted.getQuantity();
             cdao.editAmountAndSizeCart(productID, (quantityExisted + quantity), customer_id, size);
             request.getRequestDispatcher("managercart").forward(request, response);
-
         } else {
             cdao.insertCart(productID, quantity, customer_id, size);
             request.getRequestDispatcher("managercart").forward(request, response);

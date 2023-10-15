@@ -21,14 +21,15 @@ public class CartDAO extends DBContext {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public cart checkCartExist(int customer_id, int product_id) {
+    public cart checkCartExist(int customer_id, int product_id, String product_size) {
 
         String sql = "select * from Shopping_Cart\r\n"
-                + "where [customer_id] = ? and [product_id] = ?";
+                + "where [customer_id] = ? and [product_id] = ? and [product_size] = ?";
         try {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, customer_id);
             ps.setInt(2, product_id);
+            ps.setString(3, product_size);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new cart(rs.getInt(1),
@@ -43,16 +44,15 @@ public class CartDAO extends DBContext {
         return null;
     }
 
-    public void editAmountAndSizeCart(int product_id, int product_quantity, int customer_id, String product_Size) {
-        String query = "update Shopping_Cart set [product_quantity]=?,\r\n"
-                + "[product_Size]=?\r\n"
-                + "where [customer_id]=? and [product_id]=?";
+    public void editAmountAndSizeCart(int product_id, int product_quantity, int customer_id, String product_size) {
+        String query = "update Shopping_Cart set [product_quantity]= ? "
+                + "where [customer_id]= ? and [product_id]= ? and [product_size] = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setInt(1, product_id);
-            ps.setInt(2, product_quantity);
-            ps.setInt(3, customer_id);
-            ps.setString(4, product_Size);
+            ps.setInt(1, product_quantity);
+            ps.setInt(2, customer_id);
+            ps.setInt(3, product_id);
+            ps.setString(4, product_size);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,14 +93,28 @@ public class CartDAO extends DBContext {
         }
         return list;
     }
+    
+    public void deleteCart(int product_id, int customer_id, String product_size) {
+        String query = "delete from Shopping_Cart where product_id = ? "
+                + "and customer_id = ? "
+                + "and product_size = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, product_id);
+            ps.setInt(2, customer_id);
+            ps.setString(3, product_size);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } 
 
 
 //    public static void main(String[] args) {
 //        CartDAO dao = new CartDAO();
-//        dao.insertCart(2, 2, 1, "43");
-//        List<cart> list = dao.getCartByCustomerID(1);
-//        for (cart object : list) {
-//            System.out.println(object); 
-//        }
+//        cart c = dao.checkCartExist(1, 1, "43");
+//        int quantity = c.getQuantity();
+//        dao.editAmountAndSizeCart(1, quantity + 1, 1, "43");
+//        System.out.println(c);
 //    }
 }

@@ -176,7 +176,7 @@ public class ProductDAO extends DBContext {
             while (rs.next()) {
                 list.add(new productSize(rs.getInt(1),
                         rs.getInt(2),
-                        rs.getInt(3),
+                        rs.getString(3),
                         rs.getInt(4)));
             }
         } catch (Exception e) {
@@ -233,12 +233,31 @@ public class ProductDAO extends DBContext {
         }
         return list;
     }
+    
+    public productSize getSizeByProductSizeID(int size_id) {
+        String sql = "select *from Product_Size where size_id = ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, size_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new productSize(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getInt(4));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    } 
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        List<product> list = dao.getTopRelatedProduct("1", "6");
-        for (product object : list) {
-            System.out.println(object);
+        List<productSize> p = dao.getProductSizeByID("1");
+        for (productSize size : p) {
+            System.out.println(size);
         }
+    
     }
 }

@@ -43,7 +43,6 @@ public class LoginControl extends HttpServlet {
         account a = LoginDAO.checkLogin(username, password);
 
         if (a == null) {
-
             request.setAttribute("mess", "wrong email or pass");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {

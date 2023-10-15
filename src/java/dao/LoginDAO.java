@@ -9,9 +9,11 @@ import static java.sql.DriverManager.getConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.account;
+import model.cart;
 
 /**
  *
@@ -28,7 +30,7 @@ public class LoginDAO extends DBContext {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                return new account(rs.getString(1), rs.getString(2));
+                return new account(rs.getString(2), rs.getString(3));
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,4 +65,5 @@ public class LoginDAO extends DBContext {
 
         }
     }
+    
 }

@@ -12,13 +12,13 @@ public class productSize {
 
     private int productSize_id;
     private int product_id;
-    private int size;
+    private String size;
     private int quantity;
 
     public productSize() {
     }
 
-    public productSize(int productSize_id, int product_id, int size, int quantity) {
+    public productSize(int productSize_id, int product_id, String size, int quantity) {
         this.productSize_id = productSize_id;
         this.product_id = product_id;
         this.size = size;
@@ -41,11 +41,11 @@ public class productSize {
         this.product_id = product_id;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
@@ -59,7 +59,8 @@ public class productSize {
 
     @Override
     public String toString() {
-        return "ProductSize{" + "productSize_id=" + productSize_id + ", product_id=" + product_id + ", size=" + size + ", quantity=" + quantity + '}';
+        return "productSize{" + "productSize_id=" + productSize_id + ", product_id=" + product_id + ", size=" + size + ", quantity=" + quantity + '}';
     }
 
+    
 }

@@ -62,9 +62,9 @@
                                             <th>Image</th>
                                             <th class="p-name">Product Name</th>
                                             <th>Price</th>
+                                            <th>Size</th>
                                             <th>Quantity</th>
                                             <th>Total</th>
-                                            <th><i class="ti-close"></i></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,20 +72,25 @@
                                         <c:forEach items="${listP}" var="p">
                                             <c:if test="${o.product_id == p.product_id}">
                                             <tr>
-                                                <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td>
+                                                <td class="cart-pic first-row"><img src="${p.product_image}" alt=""></td>
                                                 <td class="cart-title first-row">
                                                     <h5>${p.product_name}</h5>
                                                 </td>
                                                 <td class="p-price first-row">$${p.product_price}</td>
+                                                <td class="p-price first-row">${o.product_size}</td>
                                                 <td class="qua-col first-row">
                                                     <div class="quantity">
                                                         <div class="pro-qty">
-                                                            <input type="text" value="1">
+                                                            <input type="text" value="${o.quantity}">
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="total-price first-row">$${p.product_price*o.quantity}</td>
-                                                <td class="close-td first-row"><i class="ti-close"></i></td>
+                                                <td class="close-td first-row" >
+                                                    <a href="deletecart?pid=${o.product_id}&size=${o.product_size}">
+                                                        <i class="ti-close"></i> 
+                                                    </a>
+                                                </td>
                                             </tr>
                                             </c:if>
                                         </c:forEach>

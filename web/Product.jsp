@@ -108,63 +108,62 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9">                       
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="product-pic-zoom">
-                                    <img class="product-big-img" src="${detail.product_image}" alt="">
-                                    <div class="zoom-icon">
-                                        <i class="fa fa-search-plus"></i>
+                    <div class="col-lg-9">         
+                        <form action="addcart?pid=${detail.product_id}" method="post">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="product-pic-zoom">
+                                        <img class="product-big-img" src="${detail.product_image}" alt="">
+                                        <div class="zoom-icon">
+                                            <i class="fa fa-search-plus"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="product-details">
-                                    <div class="pd-title">                                           
-                                        <h3>${detail.product_name}</h3>
-                                        <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
-                                    </div>
-                                    <div class="pd-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <span>(5)</span>
-                                    </div>
-                                    <div class="pd-desc">
-                                        <p>${detail.product_description}</p>
-                                        <h4>$${detail.product_price}</h4>
-                                    </div>
-                                    <form action="addcart?id=${detail.product_id}" method="post">
+                                <div class="col-lg-6">
+                                    <div class="product-details">
+                                        <div class="pd-title">                                           
+                                            <h3>${detail.product_name}</h3>
+                                            <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
+                                        </div>
+                                        <div class="pd-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>(5)</span>
+                                        </div>
+                                        <div class="pd-desc">
+                                            <p>${detail.product_description}</p>
+                                            <h4>$${detail.product_price}</h4>
+                                        </div>
+
                                         <div class="pd-size-choose">
                                             <c:forEach items="${listS}" var="o">
                                                 <div class="sc-item">
-                                                    <input type="radio" id="sm-size" name="size" value="${o.size}">
-                                                    <label for="size">${o.size}</label>
+                                                    <input type="radio" id="${o.size}" name="size" value="${o.size}">
+                                                    <label for="${o.size}">${o.size}</label>
                                                 </div>
                                             </c:forEach>
-
                                         </div>
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="number" value="1" name="quantity">
+                                                <input type="number" min="0" value="1" name="quantity">
                                             </div>
 
                                             <button type="submit" class="primary-btn pd-cart">Add To Cart</button>>
                                         </div>
-                                    </form>
-
-                                    <div class="pd-share">
-                                        <div class="pd-social">
-                                            <a href="#"><i class="ti-facebook"></i></a>
-                                            <a href="#"><i class="ti-twitter-alt"></i></a>
-                                            <a href="#"><i class="ti-linkedin"></i></a>
+                                        <div class="pd-share">
+                                            <div class="pd-social">
+                                                <a href="#"><i class="ti-facebook"></i></a>
+                                                <a href="#"><i class="ti-twitter-alt"></i></a>
+                                                <a href="#"><i class="ti-linkedin"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <div class="product-tab">
                             <div class="tab-item">
                                 <ul class="nav" role="tablist">
