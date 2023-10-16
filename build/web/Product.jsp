@@ -150,9 +150,13 @@
                                             <div class="pro-qty">
                                                 <input type="number" min="0" value="1" name="quantity">
                                             </div>
-
                                             <button type="submit" class="primary-btn pd-cart">Add To Cart</button>>
                                         </div>
+                                        <c:if test="${mess!=null }">
+                                            <div class="alert alert-error" role="alert">
+                                                ${mess}
+                                            </div>
+                                        </c:if>
                                         <div class="pd-share">
                                             <div class="pd-social">
                                                 <a href="#"><i class="ti-facebook"></i></a>

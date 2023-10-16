@@ -71,7 +71,7 @@
                                 <span>1</span>
                             </a>
                         </li>
-                        <li class="cart-icon"><a href="#">
+                        <li class="cart-icon"><a href="managercart">
                                 <i class="icon_bag_alt"></i>
                                 <span>3</span>
                             </a>
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="cart-price">$150.00</li>
+                        <li class="cart-price">$${totalMoney}</li>
                     </ul>
                 </div>
             </div>

@@ -55,8 +55,6 @@ public class ManagerCartController extends HttpServlet {
 
         int customer_id = adao.getCustomerIDByAccountID(account_id);
         
-        String size = request.getParameter("size");
-
         List<cart> listC = cdao.getCartByCustomerID(customer_id);
         List<product> listP = pdao.getAllProduct();
 

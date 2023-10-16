@@ -234,11 +234,14 @@ public class ProductDAO extends DBContext {
         return list;
     }
     
-    public productSize getSizeByProductSizeID(int size_id) {
-        String sql = "select *from Product_Size where size_id = ?";
+    public productSize getQuantityBySizeAndPID(int product_id, String size) {
+        String sql = "select *from Product_Size "
+                + "where product_id = ? "
+                + "and size = ?";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setInt(1, size_id);
+            ps.setInt(1, product_id);
+            ps.setString(2, size);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new productSize(rs.getInt(1),
@@ -252,12 +255,9 @@ public class ProductDAO extends DBContext {
         return null;
     } 
 
-    public static void main(String[] args) {
-        ProductDAO dao = new ProductDAO();
-        List<productSize> p = dao.getProductSizeByID("1");
-        for (productSize size : p) {
-            System.out.println(size);
-        }
-    
-    }
+//    public static void main(String[] args) {
+//        ProductDAO dao = new ProductDAO();
+//        productSize a = dao.getQuantityBySizeAndPID(1, "43");
+//        System.out.println(a);  
+//    }
 }

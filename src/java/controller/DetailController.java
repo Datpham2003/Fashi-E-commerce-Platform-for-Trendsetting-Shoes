@@ -37,10 +37,12 @@ public class DetailController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ProductDAO dao = new ProductDAO();
+
         String id = request.getParameter("id");
         String bid = request.getParameter("bid");
         String cid = request.getParameter("cid");
-        ProductDAO dao = new ProductDAO();
+//        String mess = (String) request.getAttribute("mess");
 
         product p = dao.getProductByID(id);
         List<brand> listB = dao.getAllBrand();
@@ -48,6 +50,9 @@ public class DetailController extends HttpServlet {
         List<productSize> listS = dao.getProductSizeByID(id);
         List<product> listRP = dao.getTopRelatedProduct(bid, cid);
         
+//        if (mess != null) {
+//            request.setAttribute("mess", mess);
+//        }
         request.setAttribute("listRP", listRP);
         request.setAttribute("detail", p);
         request.setAttribute("listB", listB);
