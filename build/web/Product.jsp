@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="col-lg-9">         
-                        <form action="addcart?pid=${detail.product_id}" method="post">
+                        <form action="addcart?pid=${detail.product_id}&bid=${detail.brand_id}&cid=${detail.cid}" method="post">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="product-pic-zoom">
@@ -150,13 +150,20 @@
                                             <div class="pro-qty">
                                                 <input type="number" min="0" value="1" name="quantity">
                                             </div>
-                                            <button type="submit" class="primary-btn pd-cart">Add To Cart</button>>
+                                            <button type="submit" class="primary-btn pd-cart">Add To Cart</button>                                           
                                         </div>
-                                        <c:if test="${mess!=null }">
-                                            <div class="alert alert-error" role="alert">
-                                                ${mess}
-                                            </div>
-                                        </c:if>
+                                        <div class="quantity">
+                                            <c:if test="${mess1 != null}">
+                                                <div class="alert alert-error" role="alert">
+                                                    ${mess1}
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${mess2 != null}">
+                                                <div class="alert alert-error" role="alert">
+                                                    ${mess2}
+                                                </div>
+                                            </c:if>
+                                        </div>    
                                         <div class="pd-share">
                                             <div class="pd-social">
                                                 <a href="#"><i class="ti-facebook"></i></a>

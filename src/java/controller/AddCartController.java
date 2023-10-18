@@ -60,25 +60,31 @@ public class AddCartController extends HttpServlet {
 
         String size = request.getParameter("size");
 
-        productSize checkSize = pdao.getQuantityBySizeAndPID(productID, size);
+        if (size == null) {
+            request.setAttribute("mess2", "SELECT SIZE");
+            String bid = request.getParameter("bid");
+            String cid = request.getParameter("cid");
+            request.getRequestDispatcher("detail?bid=" + bid + "&cid=" + cid + "&id=" + productID).forward(request, response);
+        } else {
+            productSize checkSize = pdao.getQuantityBySizeAndPID(productID, size);
+            cart cartExisted = cdao.checkCartExist(customer_id, productID, size);
 
-        cart cartExisted = cdao.checkCartExist(customer_id, productID, size);
-
-        int quantityExisted;
-
-//        if (checkSize.getQuantity() < quantity) {
-//            request.setAttribute("mess", "OUT OF STOCK");
-//            request.getRequestDispatcher("detail").forward(request, response);
-//        } else {
-            if (cartExisted != null) {
-                quantityExisted = cartExisted.getQuantity();
-                cdao.editAmountAndSizeCart(productID, (quantityExisted + quantity), customer_id, size);
-                request.getRequestDispatcher("managercart").forward(request, response);
-            } else {
-                cdao.insertCart(productID, quantity, customer_id, size);
-                request.getRequestDispatcher("managercart").forward(request, response);
+            if (checkSize.getQuantity() < quantity) {
+                request.setAttribute("mess1", "OUT OF STOCK");
+                String bid = request.getParameter("bid");
+                String cid = request.getParameter("cid");
+                request.getRequestDispatcher("detail?bid=" + bid + "&cid=" + cid + "&id=" + productID).forward(request, response);
+            } else if (checkSize.getQuantity() >= quantity && !size.isEmpty()) {
+                if (cartExisted != null) {
+                    int quantityExisted = cartExisted.getQuantity();
+                    cdao.editAmountAndSizeCart(productID, (quantityExisted + quantity), customer_id, size);
+                    request.getRequestDispatcher("managercart").forward(request, response);
+                } else {
+                    cdao.insertCart(productID, quantity, customer_id, size);
+                    request.getRequestDispatcher("managercart").forward(request, response);
+                }
             }
-//        }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

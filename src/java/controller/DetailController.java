@@ -42,17 +42,23 @@ public class DetailController extends HttpServlet {
         String id = request.getParameter("id");
         String bid = request.getParameter("bid");
         String cid = request.getParameter("cid");
-//        String mess = (String) request.getAttribute("mess");
+        String mess1 = (String) request.getAttribute("mess1");
+        String mess2 = (String) request.getAttribute("mess2");
+
+        if (mess1 != null) {
+            request.setAttribute("mess1", mess1);
+        }
+        
+        if (mess2 != null) {
+            request.setAttribute("mess2", mess2);
+        }
 
         product p = dao.getProductByID(id);
         List<brand> listB = dao.getAllBrand();
         List<String> listPS = dao.getAllProductSizes();
         List<productSize> listS = dao.getProductSizeByID(id);
         List<product> listRP = dao.getTopRelatedProduct(bid, cid);
-        
-//        if (mess != null) {
-//            request.setAttribute("mess", mess);
-//        }
+
         request.setAttribute("listRP", listRP);
         request.setAttribute("detail", p);
         request.setAttribute("listB", listB);
