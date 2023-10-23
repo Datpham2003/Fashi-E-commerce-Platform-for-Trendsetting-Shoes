@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -81,7 +82,6 @@
                                     <div class="col-lg-12">
                                         <label for="street">Street Address<span>*</span></label>
                                         <input type="text" id="street" class="street-first">
-                                        <input type="text">
                                     </div>
                                     <div class="col-lg-12">
                                         <label for="zip">Postcode / ZIP (optional)</label>
@@ -119,39 +119,42 @@
                                     <div class="order-total">
                                         <ul class="order-table">
                                             <li>Product <span>Total</span></li>
-                                            <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                            <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                            <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
-                                            <li class="fw-normal">Subtotal <span>$240.00</span></li>
-                                            <li class="total-price">Total <span>$240.00</span></li>
-                                        </ul>
-                                        <div class="payment-check">
-                                            <div class="pc-item">
-                                                <label for="pc-check">
-                                                    Cheque Payment
-                                                    <input type="checkbox" id="pc-check">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                            <div class="pc-item">
-                                                <label for="pc-paypal">
-                                                    Paypal
-                                                    <input type="checkbox" id="pc-paypal">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
+                                            <c:forEach items="${listC}" var="o">
+                                                <c:forEach items="${listP}" var="p">
+                                                    <c:if test="${o.product_id == p.product_id}">
+                                                    <li class="fw-normal">${p.product_name}<span>${p.product_price *o.quantity}</span></li>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </c:forEach>
+                                        <li class="total-price">Total <span>$${totalMoney}</span></li>
+                                    </ul>
+                                    <div class="payment-check">
+                                        <div class="pc-item">
+                                            <label for="pc-check">
+                                                Cheque Payment
+                                                <input type="checkbox" id="pc-check">
+                                                <span class="checkmark"></span>
+                                            </label>
                                         </div>
-                                        <div class="order-btn">
-                                            <button type="submit" class="site-btn place-btn">Place Order</button>
+                                        <div class="pc-item">
+                                            <label for="pc-paypal">
+                                                Paypal
+                                                <input type="checkbox" id="pc-paypal">
+                                                <span class="checkmark"></span>
+                                            </label>
                                         </div>
+                                    </div>
+                                    <div class="order-btn">
+                                        <button type="submit" class="site-btn place-btn">Place Order</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </section>
-            <!-- Shopping Cart Section End -->
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Shopping Cart Section End -->
 
         <jsp:include page="bottom.jsp"></jsp:include>
 

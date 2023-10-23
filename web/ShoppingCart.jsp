@@ -118,7 +118,7 @@
                                         <li class="subtotal">Subtotal <span>$${totalMoney}</span></li>
                                         <li class="cart-total">Total <span>$${totalMoney}</span></li>
                                     </ul>
-                                    <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                    <a href="loadCheckOut" class="proceed-btn">PROCEED TO CHECK OUT</a>
                                 </div>
                             </div>
                         </div>

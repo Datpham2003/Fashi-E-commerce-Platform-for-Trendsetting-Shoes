@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.brand;
+import model.cart;
 import model.category;
 import model.product;
 import model.productSize;
@@ -145,11 +146,11 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
-    public product getProductByID(String id) {
+    public product getProductByID(int id) {
         String sql = "select *from Product where product_id = ?";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1, id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new product(rs.getInt(1),
@@ -166,12 +167,12 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
-    public List<productSize> getProductSizeByID(String id) {
+    public List<productSize> getProductSizeByID(int id) {
         List<productSize> list = new ArrayList<>();
         String sql = "select *from Product_Size where product_id = ?";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1, id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new productSize(rs.getInt(1),
@@ -233,7 +234,7 @@ public class ProductDAO extends DBContext {
         }
         return list;
     }
-    
+
     public productSize getQuantityBySizeAndPID(int product_id, String size) {
         String sql = "select *from Product_Size "
                 + "where product_id = ? "
@@ -253,11 +254,27 @@ public class ProductDAO extends DBContext {
             e.printStackTrace();
         }
         return null;
-    } 
+    }
 
 //    public static void main(String[] args) {
-//        ProductDAO dao = new ProductDAO();
-//        productSize a = dao.getQuantityBySizeAndPID(1, "43");
-//        System.out.println(a);  
+//        AccountDAO adao = new AccountDAO();
+//        CheckOutDAO cdao = new CheckOutDAO();
+//        ProductDAO pdao = new ProductDAO();
+//        int account_id = adao.getAccountIDByUsername("datpham1");
+//
+//        int customer_id = adao.getCustomerIDByAccountID(account_id);
+//        
+//        List<product> listP = new ArrayList<>();
+//
+//        List<cart> listC = cdao.getAllCartByCustomerID(customer_id);
+//        for (int i = 0; i < listC.size(); i++) {
+//            int product_id = listC.get(i).getProduct_id();
+//            product p = pdao.getProductByID(product_id);
+//            listP.add(p);
+//        }
+//        for (int i = 0; i < listP.size(); i++) {
+//            String name = listP.get(i).getProduct_name();
+//            double price = listP.get(i).getProduct_price();
+//        }
 //    }
 }

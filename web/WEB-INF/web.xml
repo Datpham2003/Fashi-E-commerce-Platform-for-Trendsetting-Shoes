@@ -4,9 +4,17 @@
         <servlet-name>HomeControl</servlet-name>
         <servlet-class>controller.HomeControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadCheckOutController</servlet-name>
+        <servlet-class>controller.LoadCheckOutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadCheckOutController</servlet-name>
+        <url-pattern>/loadCheckOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
