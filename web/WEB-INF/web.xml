@@ -8,6 +8,14 @@
         <servlet-name>LoadCheckOutController</servlet-name>
         <servlet-class>controller.LoadCheckOutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckOutController</servlet-name>
+        <servlet-class>controller.CheckOutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadTrackingController</servlet-name>
+        <servlet-class>controller.LoadTrackingController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>LoadCheckOutController</servlet-name>
         <url-pattern>/loadCheckOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOutController</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadTrackingController</servlet-name>
+        <url-pattern>/loadtracking</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,6 +6,7 @@
 package controller;
 
 import dao.AccountDAO;
+import dao.CartDAO;
 import dao.CheckOutDAO;
 import dao.ProductDAO;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
+import model.OrderDetail;
 import model.account;
 import model.cart;
 import model.product;
@@ -24,7 +26,7 @@ import model.product;
  *
  * @author quang
  */
-public class LoadCheckOutController extends HttpServlet {
+public class LoadTrackingController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,6 +38,7 @@ public class LoadCheckOutController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         AccountDAO adao = new AccountDAO();
         CheckOutDAO cdao = new CheckOutDAO();
         ProductDAO pdao = new ProductDAO();
@@ -52,23 +55,23 @@ public class LoadCheckOutController extends HttpServlet {
         
         List<product> listP = pdao.getAllProduct();
 
-        List<cart> listC = cdao.getAllCartByCustomerID(customer_id);
+        List<OrderDetail> listO = cdao.getAllOrder_DetailByCustomerID(customer_id);
      
         
         double totalMoney = 0;
-        for (cart o : listC) {
+        for (OrderDetail o : listO) {
             for (product p : listP) {
                 if (o.getProduct_id() == p.getProduct_id()) {
-                    totalMoney = totalMoney + (o.getQuantity() * p.getProduct_price());
+                    totalMoney = totalMoney + (o.getProduct_quantity() * p.getProduct_price());
                 }
             }
         }
             
         request.setAttribute("listP", listP);
-        request.setAttribute("listC", listC);
+        request.setAttribute("listO", listO);
         request.setAttribute("totalMoney", totalMoney);
         
-        request.getRequestDispatcher("CheckOut.jsp").forward(request, response);
+        request.getRequestDispatcher("Tracking.jsp").forward(request, response);   
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

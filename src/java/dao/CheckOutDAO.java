@@ -5,10 +5,13 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import model.OrderDetail;
 import model.cart;
 
 /**
@@ -41,11 +44,66 @@ public class CheckOutDAO extends DBContext {
         return list;
     }
 
-//    public static void main(String[] args) {
-//        CheckOutDAO dao = new CheckOutDAO();
-//        List<cart> a = dao.getAllCartByCustomerID(1);
-//        for (cart object : a) {
-//            System.out.println(object);
-//        }
-//    }
+    public List<OrderDetail> getAllOrder_DetailByCustomerID(int customer_id) {
+        List<OrderDetail> list = new ArrayList<>();
+        String sql = "select [customer_id],[customer_name],[product_id],[product_quantity],[price],[order_date],[product_size],\n"
+                + "[address],[phone],[note],[coupon_code] from Order_Detail where customer_id = ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, customer_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderDetail(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getDouble(5),
+                        rs.getDate(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public void insertCheckOut(int customer_id, String customer_name, int product_id, int product_quanity,
+            double price, Date order_date, String size, String address, String phone,
+            String note, String coupon_code) {
+        String querry = "insert into Order_Detail\n"
+                + "([customer_id],[customer_name],[product_id],[product_quantity],[price],[order_date],[product_size],\n"
+                + "[address],[phone],[note],[coupon_code])\n"
+                + "values (?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            ps = connection.prepareStatement(querry);
+            ps.setInt(1, customer_id);
+            ps.setString(2, customer_name);
+            ps.setInt(3, product_id);
+            ps.setInt(4, product_quanity);
+            ps.setDouble(5, price);
+            ps.setDate(6, order_date);
+            ps.setString(7, size);
+            ps.setString(8, address);
+            ps.setString(9, phone);
+            ps.setString(10, note);
+            ps.setString(11, coupon_code);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        CheckOutDAO dao = new CheckOutDAO();
+//        dao.insertCheckOut(1, "datpham1", 1, 2, 200, Date.valueOf(LocalDate.now()), "42", "105 phu doan", "0857138734", "okela", "datpham1");
+        List<OrderDetail> list = dao.getAllOrder_DetailByCustomerID(1);
+        for (OrderDetail orderDetail : list) {
+            System.out.println(orderDetail); 
+       }
+        
+    }
 }

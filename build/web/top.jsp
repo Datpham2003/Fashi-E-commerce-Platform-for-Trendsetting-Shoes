@@ -151,11 +151,13 @@
                     <li><a href="#">Pages</a>
                         <ul class="dropdown">
                             <li><a href="./blog-details.html">Blog Details</a></li>
-                            <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                            <li><a href="./check-out.html">Checkout</a></li>
+                            <li><a href="managercart">Shopping Cart</a></li>
+                            <li><a href="loadtracking">My Purchases</a></li>
                             <li><a href="./faq.html">Faq</a></li>
+                            <c:if test="${sessionScope.acc == null}">
                             <li><a href="./register.html">Register</a></li>
-                            <li><a href="./login.html">Login</a></li>
+                            <li><a href="Login.jsp">Login</a></li>
+                            </c:if>
                         </ul>
                     </li>
                 </ul>

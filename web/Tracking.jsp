@@ -4,6 +4,7 @@
     Author     : quang
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,8 @@
         <title>JSP Page</title>
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-        
-         <!-- Css Styles -->
+
+        <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
@@ -33,7 +34,7 @@
                             <div class="card-body p-5">
 
                                 <p class="lead fw-bold mb-5" style="color: #f37a27;">Purchase Reciept</p>
-
+                                
                                 <div class="row">
                                     <div class="col mb-3">
                                         <p class="small text-muted mb-1">Date</p>
@@ -46,27 +47,33 @@
                                 </div>
 
                                 <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
-                                    <div class="row">
-                                        <div class="col-md-8 col-lg-9">
-                                            <p>BEATS Solo 3 Wireless Headphones</p>
-                                        </div>
-                                        <div class="col-md-4 col-lg-3">
-                                            <p>£299.99</p>
-                                        </div>
-                                    </div>
+                                    <c:forEach items="${listO}" var="o">
+                                        <c:forEach items="${listP}" var="p">
+                                            <c:if test="${o.product_id == p.product_id}">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-lg-9">
+                                                        <p>${p.product_name}</p>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-3">
+                                                        <p>$${p.product_price *o.product_quantity}</p>
+                                                    </div>
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:forEach>
                                     <div class="row">
                                         <div class="col-md-8 col-lg-9">
                                             <p class="mb-0">Shipping</p>
                                         </div>
                                         <div class="col-md-4 col-lg-3">
-                                            <p class="mb-0">£33.00</p>
+                                            <p class="mb-0">$33.00</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row my-4">
                                     <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-                                        <p class="lead fw-bold mb-0" style="color: #f37a27;">£262.99</p>
+                                        <p class="lead fw-bold mb-0" style="color: #f37a27;">$${totalMoney}</p>
                                     </div>
                                 </div>
 

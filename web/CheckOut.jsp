@@ -55,65 +55,42 @@
             <!-- Shopping Cart Section Begin -->
             <section class="checkout-section spad">
                 <div class="container">
-                    <form action="#" class="checkout-form">
+                    <form action="checkout" class="checkout-form">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="checkout-content">
-                                    <a href="#" class="content-btn">Click Here To Login</a>
-                                </div>
                                 <h4>Biiling Details</h4>
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <label for="fir">First Name<span>*</span></label>
-                                        <input type="text" id="fir">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="last">Last Name<span>*</span></label>
-                                        <input type="text" id="last">
-                                    </div>
                                     <div class="col-lg-12">
-                                        <label for="cun-name">Company Name</label>
-                                        <input type="text" id="cun-name">
+                                        <label for="fir">Full Name<span>*</span></label>
+                                        <input type="text" id="fir" name="name">
                                     </div>
                                     <div class="col-lg-12">
                                         <label for="cun">Country<span>*</span></label>
-                                        <input type="text" id="cun">
+                                        <input type="text" id="cun" name="country">
                                     </div>
                                     <div class="col-lg-12">
                                         <label for="street">Street Address<span>*</span></label>
-                                        <input type="text" id="street" class="street-first">
+                                        <input type="text" id="street" class="street-first" name="address">
                                     </div>
                                     <div class="col-lg-12">
-                                        <label for="zip">Postcode / ZIP (optional)</label>
-                                        <input type="text" id="zip">
+                                        <label for="city">Town / City<span>*</span></label>
+                                        <input type="text" id="city" name="city">
                                     </div>
                                     <div class="col-lg-12">
-                                        <label for="town">Town / City<span>*</span></label>
-                                        <input type="text" id="town">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="email">Email Address<span>*</span></label>
-                                        <input type="text" id="email">
-                                    </div>
-                                    <div class="col-lg-6">
                                         <label for="phone">Phone<span>*</span></label>
-                                        <input type="text" id="phone">
+                                        <input type="text" id="phone" name="phone">
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="create-item">
-                                            <label for="acc-create">
-                                                Create an account?
-                                                <input type="checkbox" id="acc-create">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
+                                        <label for="messege">Messege</label>
+                                        <input type="text" id="messege" placeholder="Please leave a message" name="mess">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <label for="phone">Coupon Code</label>
+                                        <input type="text" placeholder="Enter Your Coupon Code Here" name="code">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="checkout-content">
-                                    <input type="text" placeholder="Enter Your Coupon Code">
-                                </div>
                                 <div class="place-order">
                                     <h4>Your Order</h4>
                                     <div class="order-total">
@@ -123,9 +100,9 @@
                                                 <c:forEach items="${listP}" var="p">
                                                     <c:if test="${o.product_id == p.product_id}">
                                                     <li class="fw-normal">${p.product_name}<span>${p.product_price *o.quantity}</span></li>
-                                                    </c:if>
+                                                        </c:if>
+                                                    </c:forEach>
                                                 </c:forEach>
-                                            </c:forEach>
                                         <li class="total-price">Total <span>$${totalMoney}</span></li>
                                     </ul>
                                     <div class="payment-check">
@@ -145,7 +122,7 @@
                                         </div>
                                     </div>
                                     <div class="order-btn">
-                                        <button type="submit" class="site-btn place-btn">Place Order</button>
+                                        <button type="submit" class="site-btn place-btn" href="checkout">Place Order</button>
                                     </div>
                                 </div>
                             </div>
