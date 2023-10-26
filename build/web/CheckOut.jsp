@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <!--<script defer src="js/CheckOutValidate.js"></script>-->
     </head>
 
     <body>
@@ -55,38 +56,45 @@
             <!-- Shopping Cart Section Begin -->
             <section class="checkout-section spad">
                 <div class="container">
-                    <form action="checkout" class="checkout-form">
+                    <form id="checkoutform" action="checkout" class="checkout-form">
                         <div class="row">
                             <div class="col-lg-6">
                                 <h4>Biiling Details</h4>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 input-control">
                                         <label for="fir">Full Name<span>*</span></label>
-                                        <input type="text" id="fir" name="name">
-                                    </div>
-                                    <div class="col-lg-12">
+                                        <input type="text" id="name" name="name" >
+                                        <div id="error"></div>
+                                    </div>                                    
+                                    <div class="col-lg-12 input-control">
                                         <label for="cun">Country<span>*</span></label>
-                                        <input type="text" id="cun" name="country">
+                                        <input type="text" id="country" name="country" >
+                                        <div id="error"></div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 input-control">
                                         <label for="street">Street Address<span>*</span></label>
-                                        <input type="text" id="street" class="street-first" name="address">
+                                        <input type="text" id="street" class="street-first" name="address" >
+                                        <div id="error"></div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 input-control">
                                         <label for="city">Town / City<span>*</span></label>
-                                        <input type="text" id="city" name="city">
+                                        <input type="text" id="city" name="city" >
+                                        <div id="error"></div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 input-control">
                                         <label for="phone">Phone<span>*</span></label>
-                                        <input type="text" id="phone" name="phone">
+                                        <input type="text" id="phone" name="phone" >
+                                        <div id="error"></div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 input-control">
                                         <label for="messege">Messege</label>
                                         <input type="text" id="messege" placeholder="Please leave a message" name="mess">
+                                        <div id="error"></div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 input-control">
                                         <label for="phone">Coupon Code</label>
-                                        <input type="text" placeholder="Enter Your Coupon Code Here" name="code">
+                                        <input type="text" id="code" placeholder="Enter Your Coupon Code Here" name="code">
+                                        <div id="error"></div>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +130,7 @@
                                         </div>
                                     </div>
                                     <div class="order-btn">
-                                        <button type="submit" class="site-btn place-btn" href="checkout">Place Order</button>
+                                        <button type="submit" class="site-btn place-btn">Place Order</button>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +142,7 @@
         <!-- Shopping Cart Section End -->
 
         <jsp:include page="bottom.jsp"></jsp:include>
-
+        
         <!-- Js Plugins -->
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

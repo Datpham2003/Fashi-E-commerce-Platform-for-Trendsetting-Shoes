@@ -109,7 +109,7 @@
 
                                 <p class="mt-4 pt-2 mb-0">Want any help? <a href="#!" style="color: #f37a27;">Please contact
                                         us</a></p>
-
+                                <p class="mt-4 pt-2 mb-0"><a href="home" style="color: #f37a27;"> Back To Home Page</a></p>
                             </div>
                         </div>
                     </div>

@@ -109,6 +109,17 @@ public class CartDAO extends DBContext {
         }
     } 
     
+    public void deleteCartByCustomerID(int customer_id) {
+        String query = "delete from Shopping_Cart where customer_id = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, customer_id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } 
+    
     
 
 

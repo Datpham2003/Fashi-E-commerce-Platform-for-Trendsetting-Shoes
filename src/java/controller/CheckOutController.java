@@ -4,7 +4,9 @@
  */
 package controller;
 
+import com.oracle.wls.shaded.org.apache.bcel.generic.AALOAD;
 import dao.AccountDAO;
+import dao.CartDAO;
 import dao.CheckOutDAO;
 import dao.ProductDAO;
 import java.io.IOException;
@@ -20,6 +22,7 @@ import java.util.List;
 import model.account;
 import model.cart;
 import model.product;
+import model.productSize;
 
 /**
  *
@@ -43,6 +46,7 @@ public class CheckOutController extends HttpServlet {
         AccountDAO adao = new AccountDAO();
         CheckOutDAO cdao = new CheckOutDAO();
         ProductDAO pdao = new ProductDAO();
+        CartDAO cadao = new CartDAO();
 
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
@@ -72,7 +76,10 @@ public class CheckOutController extends HttpServlet {
         List<cart> listC = cdao.getAllCartByCustomerID(customer_id);
 
         List<product> listP = pdao.getAllProduct();
-
+        
+        List<productSize> listPS = pdao.getProductSize();
+        
+        //del cart after checkout
         for (cart o : listC) {
             for (product p : listP) {
                 if (o.getProduct_id() == p.getProduct_id()) {
@@ -81,8 +88,19 @@ public class CheckOutController extends HttpServlet {
                 }
             }
         }
-
-        response.sendRedirect("Tracking.jsp");
+        
+        //update Product_Size table
+        for (cart o : listC) {
+            for (productSize s : listPS) {
+                if (o.getProduct_id() == s.getProduct_id() && o.getProduct_size().equalsIgnoreCase(s.getSize())) {
+                    pdao.updateProductSize(o.getProduct_id(), o.getProduct_size(), s.getQuantity()- o.getQuantity());
+                }
+            }
+        }
+               
+        cadao.deleteCartByCustomerID(customer_id);
+        
+        response.sendRedirect("loadtracking");
 
     }
 

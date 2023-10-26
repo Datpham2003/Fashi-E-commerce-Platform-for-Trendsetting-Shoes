@@ -4341,3 +4341,30 @@ margin-top: -5px;
 .horizontal-timeline .items .items-list {
 padding-top: 15px;
 }
+
+.input-control input{
+    border: 2px solid #f3f3f3;
+    border-radius: 4px;
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-control input:focus{
+    outline: 0;
+}
+
+.input-control.success input{
+    border-color: #34ce57;
+}
+
+.input-control.error input{
+    border-color: #DC3232;
+}
+
+.input-control .error{
+    color: #DC3232;
+    font-size: 9px;
+    height: 13px;
+}

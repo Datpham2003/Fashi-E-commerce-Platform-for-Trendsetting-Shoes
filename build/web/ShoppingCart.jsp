@@ -71,27 +71,27 @@
                                     <c:forEach items="${listC}" var="o">
                                         <c:forEach items="${listP}" var="p">
                                             <c:if test="${o.product_id == p.product_id}">
-                                            <tr>
-                                                <td class="cart-pic first-row"><img src="${p.product_image}" alt=""></td>
-                                                <td class="cart-title first-row">
-                                                    <h5>${p.product_name}</h5>
-                                                </td>
-                                                <td class="p-price first-row">$${p.product_price}</td>
-                                                <td class="p-price first-row">${o.product_size}</td>
-                                                <td class="qua-col first-row">
-                                                    <div class="quantity">
-                                                        <div class="pro-qty">
-                                                            <input type="text" value="${o.quantity}">
+                                                <tr>
+                                                    <td class="cart-pic first-row"><img src="${p.product_image}" alt=""></td>
+                                                    <td class="cart-title first-row">
+                                                        <h5>${p.product_name}</h5>
+                                                    </td>
+                                                    <td class="p-price first-row">$${p.product_price}</td>
+                                                    <td class="p-price first-row">${o.product_size}</td>
+                                                    <td class="qua-col first-row">
+                                                        <div class="quantity">
+                                                            <div class="pro-qty">
+                                                                <input type="text" value="${o.quantity}">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="total-price first-row">$${p.product_price*o.quantity}</td>
-                                                <td class="close-td first-row" >
-                                                    <a href="deletecart?pid=${o.product_id}&size=${o.product_size}">
-                                                        <i class="ti-close"></i> 
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td class="total-price first-row">$${p.product_price*o.quantity}</td>
+                                                    <td class="close-td first-row" >
+                                                        <a href="deletecart?pid=${o.product_id}&size=${o.product_size}">
+                                                            <i class="ti-close"></i> 
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                             </c:if>
                                         </c:forEach>
                                     </c:forEach>
@@ -102,14 +102,6 @@
                             <div class="col-lg-4">
                                 <div class="cart-buttons">
                                     <a href="shop" class="primary-btn continue-shop">Continue shopping</a>
-                                    <a href="#" class="primary-btn up-cart">Update cart</a>
-                                </div>
-                                <div class="discount-coupon">
-                                    <h6>Discount Codes</h6>
-                                    <form action="#" class="coupon-form">
-                                        <input type="text" placeholder="Enter your codes">
-                                        <button type="submit" class="site-btn coupon-btn">Apply</button>
-                                    </form>
                                 </div>
                             </div>
                             <div class="col-lg-4 offset-lg-4">
@@ -129,8 +121,6 @@
         <!-- Shopping Cart Section End -->
 
         <jsp:include page="bottom.jsp"></jsp:include>
-
-
 
         <!-- Js Plugins -->
         <script src="js/jquery-3.3.1.min.js"></script>

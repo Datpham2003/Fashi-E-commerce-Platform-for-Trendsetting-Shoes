@@ -256,25 +256,44 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
+    public List<productSize> getProductSize() {
+        List<productSize> list = new ArrayList<>();
+        String sql = "select *from Product_Size";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new productSize(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getInt(4)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public void updateProductSize(int product_id,String size,int quantity) {
+        String querry = "update Product_Size\n"
+                + "set quantity = ?\n"
+                + "where product_id = ? and size = ?;";
+        try {
+            ps = connection.prepareStatement(querry);
+            ps.setInt(1, quantity);
+            ps.setInt(2, product_id);
+            ps.setString(3, size);
+            ps.executeUpdate(); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 //    public static void main(String[] args) {
-//        AccountDAO adao = new AccountDAO();
-//        CheckOutDAO cdao = new CheckOutDAO();
-//        ProductDAO pdao = new ProductDAO();
-//        int account_id = adao.getAccountIDByUsername("datpham1");
-//
-//        int customer_id = adao.getCustomerIDByAccountID(account_id);
-//        
-//        List<product> listP = new ArrayList<>();
-//
-//        List<cart> listC = cdao.getAllCartByCustomerID(customer_id);
-//        for (int i = 0; i < listC.size(); i++) {
-//            int product_id = listC.get(i).getProduct_id();
-//            product p = pdao.getProductByID(product_id);
-//            listP.add(p);
-//        }
-//        for (int i = 0; i < listP.size(); i++) {
-//            String name = listP.get(i).getProduct_name();
-//            double price = listP.get(i).getProduct_price();
+//        ProductDAO dao = new ProductDAO();
+//        List<productSize> list = dao.getProductSize();
+//        for (productSize size : list) {
+//            System.out.println(size);
 //        }
 //    }
 }
