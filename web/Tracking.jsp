@@ -51,10 +51,13 @@
                                         <c:forEach items="${listP}" var="p">
                                             <c:if test="${o.product_id == p.product_id}">
                                                 <div class="row">
-                                                    <div class="col-md-8 col-lg-9">
+                                                    <div class="col-md-6 col-lg-6">
                                                         <p>${p.product_name}</p>
                                                     </div>
-                                                    <div class="col-md-4 col-lg-3">
+                                                    <div class="col-md-2 col-lg-2">
+                                                        <p>${o.size}</p>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
                                                         <p>$${p.product_price *o.product_quantity}</p>
                                                     </div>
                                                 </div>
@@ -62,10 +65,10 @@
                                         </c:forEach>
                                     </c:forEach>
                                     <div class="row">
-                                        <div class="col-md-8 col-lg-9">
+                                        <div class="col-md-8 col-lg-8">
                                             <p class="mb-0">Shipping</p>
                                         </div>
-                                        <div class="col-md-4 col-lg-3">
+                                        <div class="col-md-4 col-lg-4">
                                             <p class="mb-0">$33.00</p>
                                         </div>
                                     </div>

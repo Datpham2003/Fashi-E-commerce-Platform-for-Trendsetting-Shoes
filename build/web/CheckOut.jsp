@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <!--<script defer src="js/CheckOutValidate.js"></script>-->
+        <script defer src="js/CheckOutValidate.js"></script>
     </head>
 
     <body>
@@ -64,37 +64,37 @@
                                     <div class="col-lg-12 input-control">
                                         <label for="fir">Full Name<span>*</span></label>
                                         <input type="text" id="name" name="name" >
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>                                    
                                     <div class="col-lg-12 input-control">
                                         <label for="cun">Country<span>*</span></label>
                                         <input type="text" id="country" name="country" >
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>
                                     <div class="col-lg-12 input-control">
                                         <label for="street">Street Address<span>*</span></label>
                                         <input type="text" id="street" class="street-first" name="address" >
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>
                                     <div class="col-lg-12 input-control">
                                         <label for="city">Town / City<span>*</span></label>
                                         <input type="text" id="city" name="city" >
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>
                                     <div class="col-lg-12 input-control">
                                         <label for="phone">Phone<span>*</span></label>
                                         <input type="text" id="phone" name="phone" >
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>
                                     <div class="col-lg-12 input-control">
                                         <label for="messege">Messege</label>
                                         <input type="text" id="messege" placeholder="Please leave a message" name="mess">
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>
-                                    <div class="col-lg-12 input-control">
+                                    <div class="col-lg-12 input-control">   
                                         <label for="phone">Coupon Code</label>
                                         <input type="text" id="code" placeholder="Enter Your Coupon Code Here" name="code">
-                                        <div id="error"></div>
+                                        <div class="error"></div>
                                     </div>
                                 </div>
                             </div>
