@@ -2,6 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
+console.log('JavaScript code is loaded');
+
+
 const form = document.getElementById('checkoutform');
 const name = document.getElementById('name');
 const country = document.getElementById('country');
@@ -61,9 +64,9 @@ const validateInputs = () => {
     }
 
     if (countryValue === '') {
-        setError(name, 'Country is required');
+        setError(country, 'Country is required');
     } else if (countryValue.length > 60) {
-        setError(name, 'Country must be less than 60 characters');
+        setError(country, 'Country must be less than 60 characters');
     } else {
         setSuccess(country);
     }
@@ -78,16 +81,16 @@ const validateInputs = () => {
 
 
     if (cityValue === '') {
-        setError(street, 'City is required');
+        setError(city, 'City is required');
     } else if (cityValue.length > 20) {
-        setError(street, 'City must be less than 20 characters');
+        setError(city, 'City must be less than 20 characters');
     } else {
         setSuccess(city);
     }
 
     if (phoneValue === '') {
         setError(phone, 'Phone is required');
-    } else if (cityValue.length > 11) {
+    } else if (phoneValue.length > 11) {
         setError(phone, 'Phone must be less than 11 number');
     } else if (!validPhonePattern.test(phoneValue)) {
         setError(phone, 'Phone can only contain numbers');

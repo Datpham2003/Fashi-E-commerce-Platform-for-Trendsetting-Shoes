@@ -4,13 +4,11 @@
  */
 package controller;
 
-import com.oracle.wls.shaded.org.apache.bcel.generic.AALOAD;
 import dao.AccountDAO;
 import dao.CartDAO;
 import dao.CheckOutDAO;
 import dao.ProductDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

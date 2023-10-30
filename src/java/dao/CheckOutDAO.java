@@ -20,7 +20,6 @@ import model.cart;
  */
 public class CheckOutDAO extends DBContext {
 
-    Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
 
