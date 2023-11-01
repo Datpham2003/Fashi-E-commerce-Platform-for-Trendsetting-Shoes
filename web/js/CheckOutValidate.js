@@ -2,8 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
-console.log('JavaScript code is loaded');
-
 
 const form = document.getElementById('checkoutform');
 const name = document.getElementById('name');
@@ -18,7 +16,11 @@ const errorElement = document.getElementById('error');
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    validateInputs();
+    let valid = validateInputs();
+    
+    if (valid){
+        form.dispatchEvent(new Event('submit'));
+    }
 });
 
 const setError = (element, messege) => {
@@ -109,6 +111,5 @@ const validateInputs = () => {
     } else {
         setSuccess(code);
     }
-    
     
 };

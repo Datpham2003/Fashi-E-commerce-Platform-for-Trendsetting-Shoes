@@ -56,18 +56,18 @@
             <!-- Shopping Cart Section Begin -->
             <section class="checkout-section spad">
                 <div class="container">
-                    <form id="checkoutform" action="checkout" class="checkout-form">
+                    <form id="checkoutform" action="checkout" method="post" class="checkout-form">
                         <div class="row">
                             <div class="col-lg-6">
                                 <h4>Biiling Details</h4>
                                 <div class="row">
                                     <div class="col-lg-12 input-control">
-                                        <label for="fir">Full Name<span>*</span></label>
+                                        <label for="name">Full Name<span>*</span></label>
                                         <input type="text" id="name" name="name" >
                                         <div class="error"></div>
                                     </div>                                    
                                     <div class="col-lg-12 input-control">
-                                        <label for="cun">Country<span>*</span></label>
+                                        <label for="country">Country<span>*</span></label>
                                         <input type="text" id="country" name="country" >
                                         <div class="error"></div>
                                     </div>
@@ -107,7 +107,7 @@
                                             <c:forEach items="${listC}" var="o">
                                                 <c:forEach items="${listP}" var="p">
                                                     <c:if test="${o.product_id == p.product_id}">
-                                                    <li class="fw-normal">${p.product_name}<span>${p.product_price *o.quantity}</span></li>
+                                                    <li class="fw-normal">${p.product_name}<span>$${p.product_price *o.quantity}</span></li>
                                                         </c:if>
                                                     </c:forEach>
                                                 </c:forEach>

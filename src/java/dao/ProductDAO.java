@@ -290,10 +290,6 @@ public class ProductDAO extends DBContext {
     }
 
 //    public static void main(String[] args) {
-//        ProductDAO dao = new ProductDAO();
-//        List<productSize> list = dao.getProductSize();
-//        for (productSize size : list) {
-//            System.out.println(size);
-//        }
+//       
 //    }
 }
