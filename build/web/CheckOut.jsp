@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <script defer src="js/CheckOutValidate.js"></script>
+        <!--<script defer src="js/CheckOutValidate.js"></script>-->
     </head>
 
     <body>

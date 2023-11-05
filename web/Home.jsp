@@ -79,7 +79,7 @@
             <div class="banner-section spad">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="single-banner">
                                 <img src="img/banner-1.jpg" alt="">
                                 <div class="inner-text">
@@ -87,19 +87,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="single-banner">
                                 <img src="img/banner-2.jpg" alt="">
                                 <div class="inner-text">
                                     <h4>Women’s</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="single-banner">
-                                <img src="img/banner_3.jpg" alt="">
-                                <div class="inner-text">
-                                    <h4>Accessories</h4>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +114,6 @@
                             <div class="filter-control">
                                 <ul>
                                     <li  class="active">Shoes</li>
-                                    <li>Accessories</li>
                                 </ul>
                             </div>
                             <div class="product-slider owl-carousel">
@@ -135,8 +126,8 @@
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                            <li class="w-icon active"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">+ Quick View</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
@@ -199,13 +190,16 @@
         <section class="man-banner spad">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="product-large set-bg m-small" data-setbg="img/products/man-large.jpg">
+                            <h2>Men’s</h2>
+                            <a href="#">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 ">
                         <div class="filter-control">
                             <ul>
-                                <li class="active">Clothings</li>
-                                <li>HandBag</li>
-                                <li>Shoes</li>
-                                <li>Accessories</li>
+                                <li class="active">Shoes</li>
                             </ul>
                         </div>
                         <div class="product-slider owl-carousel">
@@ -218,8 +212,8 @@
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                            <li class="w-icon active"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">+ Quick View</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
@@ -238,12 +232,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 offset-lg-2">
-                <div class="product-large set-bg m-small" data-setbg="img/products/man-large.jpg">
-                    <h2>Men’s</h2>
-                    <a href="#">Discover More</a>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
