@@ -108,3 +108,4 @@ public class DetailController extends HttpServlet {
     }// </editor-fold>
 
 }
+

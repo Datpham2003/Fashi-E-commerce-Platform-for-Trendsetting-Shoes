@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.AccountDAO;
 import dao.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.account;
+import model.profile;
 
 /**
  *
@@ -43,20 +45,42 @@ public class LoginControl extends HttpServlet {
         account a = LoginDAO.checkLogin(username, password);
 
         if (a == null) {
-            request.setAttribute("mess", "wrong email or pass");
+            request.setAttribute("mess", "Wrong username or pass");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("acc", a);
-
             Cookie u = new Cookie("userC", username);
             Cookie p = new Cookie("passC", password);
             u.setMaxAge(Integer.MAX_VALUE);
             p.setMaxAge(Integer.MAX_VALUE);
             response.addCookie(u);
             response.addCookie(p);
-            response.sendRedirect("home");
+
+            // Redirect to appropriate page based on role
+            int roleId = a.getIdRole(); // Assuming getRoleId() returns the role ID
+            switch (roleId) {
+                case 1:
+                    response.sendRedirect("home"); // Replace "customerPage" with the appropriate URL for the customer page
+                    break;
+                case 2:
+                    response.sendRedirect("manageProduct"); // Replace "managerPage" with the appropriate URL for the manager page
+                    break;
+                case 3:
+                    response.sendRedirect("allAccount"); // Replace "adminPage" with the appropriate URL for the admin page
+                    break;
+                case 4:
+                    response.sendRedirect("order"); // Replace "businessStaffPage" with the appropriate URL for the business staff page
+                    break;
+                case 5:
+                    response.sendRedirect("ship"); // Replace "shipperPage" with the appropriate URL for the shipper page
+                    break;
+                default:
+                    response.sendRedirect("defaultPage"); // Replace "defaultPage" with the appropriate URL for the default page
+                    break;
+            }
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

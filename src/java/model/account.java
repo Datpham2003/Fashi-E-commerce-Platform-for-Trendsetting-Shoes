@@ -9,16 +9,30 @@ package model;
  * @author acer
  */
 public class account {
-
-    private String username;
-    private String password;
+    private int idAccount;
+    private String  username ;
+    private String  password ;
+    private int  idRole;
+    private int  idProfile;
+    
 
     public account() {
     }
 
-    public account(String username, String password) {
+    public account(int idAccount, String username, String password, int idRole, int idProfile) {
+        this.idAccount = idAccount;
         this.username = username;
         this.password = password;
+        this.idRole = idRole;
+        this.idProfile = idProfile;
+    }
+
+    public int getIdAccount() {
+        return idAccount;
+    }
+
+    public void setIdAccount(int idAccount) {
+        this.idAccount = idAccount;
     }
 
     public String getUsername() {
@@ -37,9 +51,33 @@ public class account {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "account{" + "username=" + username + ", password=" + password + '}';
+    public int getIdRole() {
+        return idRole;
     }
 
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
+    }
+
+    public int getIdProfile() {
+        return idProfile;
+    }
+
+    public void setIdProfile(int idProfile) {
+        this.idProfile = idProfile;
+    }
+
+    @Override
+    public String toString() {
+        return "account{" + "idAccount=" + idAccount + ", username=" + username + ", password=" + password + ", idRole=" + idRole + ", idProfile=" + idProfile + '}';
+    }
+
+   
+
+    
+
+    
+    
+    
+    
 }

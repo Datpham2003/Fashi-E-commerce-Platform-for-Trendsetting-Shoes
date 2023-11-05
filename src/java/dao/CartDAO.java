@@ -72,8 +72,7 @@ public class CartDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }    
-        
+    }
 
     public List<cart> getCartByCustomerID(int customer_id) {
         List<cart> list = new ArrayList<>();
@@ -93,7 +92,7 @@ public class CartDAO extends DBContext {
         }
         return list;
     }
-    
+
     public void deleteCart(int product_id, int customer_id, String product_size) {
         String query = "delete from Shopping_Cart where product_id = ? "
                 + "and customer_id = ? "
@@ -107,8 +106,8 @@ public class CartDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    } 
-    
+    }
+
     public void deleteCartByCustomerID(int customer_id) {
         String query = "delete from Shopping_Cart where customer_id = ?";
         try {
@@ -118,16 +117,24 @@ public class CartDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    } 
-    
-    
+    }
 
+    public void insertContact(String name, String email, String mess, int accountID) {
+        String query = "insert Contact(Name, Email, Content, accountID) values(?, ?, ?, ?)";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, mess);
+            ps.setInt(4, accountID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-//    public static void main(String[] args) {
-//        CartDAO dao = new CartDAO();
-//        cart c = dao.checkCartExist(1, 1, "43");
-//        int quantity = c.getQuantity();
-//        dao.editAmountAndSizeCart(1, quantity + 1, 1, "43");
-//        System.out.println(c);
-//    }
+    public static void main(String[] args) {
+        CartDAO dao = new CartDAO();
+       dao.insertContact("trung", "trung", "10d", 1);
+    }
 }

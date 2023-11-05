@@ -45,24 +45,26 @@ public class CheckOutDAO extends DBContext {
 
     public List<OrderDetail> getAllOrder_DetailByCustomerID(int customer_id) {
         List<OrderDetail> list = new ArrayList<>();
-        String sql = "select [customer_id],[customer_name],[product_id],[product_quantity],[price],[order_date],[product_size],\n"
-                + "[address],[phone],[note],[coupon_code] from Order_Detail where customer_id = ?";
+        String sql = "select [order_id],[customer_id],[customer_name],[product_id],[product_quantity],[price],[order_date],[product_size],\n"
+                + "[address],[phone],[note],[coupon_code],[order_status] from Order_Detail where customer_id = ?";
         try {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, customer_id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new OrderDetail(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getInt(3),
+                        rs.getInt(2),
+                        rs.getString(3),
                         rs.getInt(4),
-                        rs.getDouble(5),
-                        rs.getDate(6),
-                        rs.getString(7),
+                        rs.getInt(5),
+                        rs.getDouble(6),
+                        rs.getDate(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
-                        rs.getString(11)));
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,6 +96,34 @@ public class CheckOutDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+     public List<OrderDetail> getAllOrder_Detail() {
+        List<OrderDetail> list = new ArrayList<>();
+        String sql = "select [order_id],[customer_id],[customer_name],[product_id],[product_quantity],[price],[order_date],[product_size],\n"
+                + "[address],[phone],[note],[coupon_code],[order_status] from Order_Detail";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderDetail(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getDouble(6),
+                        rs.getDate(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     public static void main(String[] args) {

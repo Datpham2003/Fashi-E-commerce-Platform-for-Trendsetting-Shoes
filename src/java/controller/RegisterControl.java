@@ -4,7 +4,9 @@
  */
 package controller;
 
+import dao.AccountDAO;
 import dao.LoginDAO;
+import dao.ProfileDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -41,9 +43,13 @@ public class RegisterControl extends HttpServlet {
             response.sendRedirect("Register.jsp");
         } else {
             LoginDAO LoginDAO = new LoginDAO();
+            ProfileDAO pro = new ProfileDAO();
+            AccountDAO acd = new AccountDAO();
             account a = LoginDAO.checkAccount(user);
             if (a == null) {
                 LoginDAO.signUp(user, pass);
+                int pid = acd.getProfileIDByUsername(user);
+                pro.setIdProfile(pid);
                 response.sendRedirect("Login.jsp");
             } else {
                 response.sendRedirect("Register.jsp");

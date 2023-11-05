@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -18,15 +17,22 @@
             </div>
             <div class="ht-right">
                 <c:if test="${sessionScope.acc != null}">
-
-<!--                    <a class="login-panel"><i class="fa fa-user"></i>${sessionScope.acc.username}</a>
-<a href="logout" class="login-panel"><i class="fa fa-user" ></i>Logout</a>-->
-
-                </c:if>
-
-                <c:if test="${sessionScope.acc == null}">
-                    <a href="Login.jsp" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                </c:if>    
+                        <div class="login-panel">
+                            <div class="dropdownlog">
+                            <a class="dropbtnlog"><i class="fa fa-user"></i>${sessionScope.acc.username}</a>
+                            <div class="dropdownlog-content">
+                                <a href="profile">Profile</a>
+                            <a href="logout">Logout</a>
+                            </div>
+                            </div>
+                        </div>
+<!--                           <a class="login-panel"><i class="fa fa-user"></i>${sessionScope.acc.username}</a>-->
+                
+                    </c:if>
+                    
+                    <c:if test="${sessionScope.acc == null}">
+                        <a href="Login.jsp" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    </c:if>   
 
                 <div class="lan-selector">
                     <select class="language_drop" name="countries" id="countries" style="width:300px;">
@@ -58,22 +64,21 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="advanced-search">
                         <button type="button" class="category-btn">All Categories</button>
-                        <form action="#" class="input-group">
-                            <input type="text" placeholder="What do you need?">
-                            <button type="button"><i class="ti-search"></i></button>
+                        <form action="search" class="input-group">
+                                <input name="txt" type="text" placeholder="What do you need?">
+                                <button type="submit"><i class="ti-search"></i></button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
-                        <li class="heart-icon"><a href="#">
+<!--                        <li class="heart-icon"><a href="#">
                                 <i class="icon_heart_alt"></i>
                                 <span>1</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="cart-icon"><a href="managercart">
                                 <i class="icon_bag_alt"></i>
-                                <span>3</span>
                             </a>
                             <div class="cart-hover">
                                 <div class="select-items">
@@ -147,7 +152,7 @@
                         </ul>
                     </li>
                     <li class="active"><a href="./blog.html">Blog</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="Contact.jsp">Contact</a></li>
                     <li><a href="#">Pages</a>
                         <ul class="dropdown">
                             <li><a href="./blog-details.html">Blog Details</a></li>
@@ -165,5 +170,27 @@
             <div id="mobile-menu-wrap"></div>
         </div>
     </div>
+    
+            <style>
+.dropdownlog-content {
+  display: none;
+  background: white;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdownlog-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdownlog:hover .dropdownlog-content {
+  display: block;
+}
+
+</style>
 </header>
-<!-- Header End -->

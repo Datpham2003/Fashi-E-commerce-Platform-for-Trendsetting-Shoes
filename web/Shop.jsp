@@ -59,23 +59,30 @@
                             <div class="filter-widget">
                                 <h4 class="fw-title">Categories</h4>
                                 <ul class="filter-catagories">
-                                    <li><a href="#">Men</a></li>
-                                    <li><a href="#">Women</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    <c:forEach items="${listC}" var="o">
+                                    <li><a href="category?cid=${o.category_id}">${o.category_name}</a></li>
+                                    </c:forEach>
                                 </ul>
                             </div>
                             <div class="filter-widget">
                                 <h4 class="fw-title">Brand</h4>
                                 <div class="fw-brand-check">
-                                <c:forEach items="${listB}" var="o">
+                                <c:set var="br" value="${requestScope.listB}"/>
+                                <c:set var="bi" value="${requestScope.bid}"/>
+                                <form action="check">
+                                    <c:forEach begin="0" end="${br.size()-1}" var="i">
+                                <%--<c:forEach items="${listB}" var="o">--%>
                                     <div class="bc-item">
-                                        <label for="bc-calvin">
-                                            ${o.brand_name}
-                                            <input type="checkbox" id="${o.brand_id}" name="brand_id">
+                                        
+                                            <input type="checkbox" name="id" value="${br.get(i).getBrand_id()}"
+                                                   ${bi[i]?"checked":""} onclick="this.form.submit()"/>
+                                                   ${br.get(i).getBrand_name()}
                                             <span class="checkmark"></span>
-                                        </label>
+                                       
                                     </div>
-                                </c:forEach>            
+                                </c:forEach>  
+                                </form>        
+                                        
                             </div>
                         </div>
                         <div class="filter-widget">
@@ -112,23 +119,6 @@
 
                     </div>
                     <div class="col-lg-9 order-1 order-lg-2">
-                        <div class="product-show-option">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="select-option">
-                                        <select class="sorting">
-                                            <option value="">Default Sorting</option>
-                                        </select>
-                                        <select class="p-show">
-                                            <option value="">Show:</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-5 text-right">
-                                    <p>Show 01- 09 Of 36 Product</p>
-                                </div>
-                            </div>
-                        </div>
                         <div class="product-list">
                             <div class="row">
                                 <c:forEach items="${listP}" var="o">

@@ -9,11 +9,9 @@ import static java.sql.DriverManager.getConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.account;
-import model.cart;
 
 /**
  *
@@ -21,49 +19,57 @@ import model.cart;
  */
 public class LoginDAO extends DBContext {
 
-    public account checkLogin(String username, String password) {
-
+    public account checkLogin(String username, String password){
+  
         try {
             String sql = "select *from Account where username=? and password=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                return new account(rs.getString(2), rs.getString(3));
+            while(rs.next()) {
+                return new account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-
-    public account checkAccount(String username) {
-
+    
+    public account checkAccount(String username){
+  
         try {
             String sql = "select *from Account where username= ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                return new account(rs.getString(1), rs.getString(2));
+            while(rs.next()) {
+                return new account(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex) {   
         }
         return null;
     }
-
-    public void signUp(String username, String password) {
-        String sql = "insert into Account\n"
+    
+    public void signUp(String username, String password){
+        String sql = "insert into Account (username , password)\n "
                 + "values(?,?)";
-        try {
+        try{
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
             ps.executeUpdate();
-        } catch (Exception ex) {
-
+        }catch (Exception ex){
+            
         }
     }
     
+    public static void main(String[] args) {
+        AccountDAO a = new AccountDAO();
+        ProfileDAO p = new ProfileDAO();
+        int i = a.getProfileIDByUsername("test");
+        System.out.println(i);
+        p.setIdProfile(i);
+        
+    }
 }

@@ -47,14 +47,14 @@ public class ManagerCartController extends HttpServlet {
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
         if (a == null) {
-            response.sendRedirect("Login.jsp");
+            response.sendRedirect("login");
             return;
         }
-         
+
         int account_id = adao.getAccountIDByUsername(a.getUsername());
 
         int customer_id = adao.getCustomerIDByAccountID(account_id);
-        
+
         List<cart> listC = cdao.getCartByCustomerID(customer_id);
         List<product> listP = pdao.getAllProduct();
 

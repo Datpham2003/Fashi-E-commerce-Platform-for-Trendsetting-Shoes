@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <!--<script defer src="js/CheckOutValidate.js"></script>-->
+                <script defer src="js/CheckOutValidate.js"></script>
     </head>
 
     <body>
@@ -56,7 +56,7 @@
             <!-- Shopping Cart Section Begin -->
             <section class="checkout-section spad">
                 <div class="container">
-                    <form id="checkoutform" action="checkout" method="post" class="checkout-form">
+                    <form id="checkoutform" action="checkout" class="checkout-form">
                         <div class="row">
                             <div class="col-lg-6">
                                 <h4>Biiling Details</h4>
@@ -107,7 +107,7 @@
                                             <c:forEach items="${listC}" var="o">
                                                 <c:forEach items="${listP}" var="p">
                                                     <c:if test="${o.product_id == p.product_id}">
-                                                    <li class="fw-normal">${p.product_name}<span>$${p.product_price *o.quantity}</span></li>
+                                                    <li class="fw-normal">${p.product_name}<span>${p.product_price *o.quantity}</span></li>
                                                         </c:if>
                                                     </c:forEach>
                                                 </c:forEach>
@@ -142,7 +142,7 @@
         <!-- Shopping Cart Section End -->
 
         <jsp:include page="bottom.jsp"></jsp:include>
-        
+
         <!-- Js Plugins -->
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

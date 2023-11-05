@@ -107,7 +107,7 @@
                         <div class="col-lg-3">
                             <div class="product-large set-bg" data-setbg="img/products/women-large.jpg">
                                 <h2>Women’s</h2>
-                                <a href="#">Discover More</a>
+                                <a href="shop">Discover More</a>
                             </div>
                         </div>
                         <div class="col-lg-8 offset-lg-1">
@@ -126,8 +126,8 @@
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">+ Quick View</a></li>
+                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
@@ -193,10 +193,10 @@
                     <div class="col-lg-3 offset-lg-1">
                         <div class="product-large set-bg m-small" data-setbg="img/products/man-large.jpg">
                             <h2>Men’s</h2>
-                            <a href="#">Discover More</a>
+                            <a href="shop">Discover More</a>
                         </div>
                     </div>
-                    <div class="col-lg-8 ">
+                    <div class="col-lg-8">
                         <div class="filter-control">
                             <ul>
                                 <li class="active">Shoes</li>
@@ -212,8 +212,8 @@
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="detail?id=${o.product_id}&bid=${o.brand_id}&cid=${o.cid}">+ Quick View</a></li>
+                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
@@ -232,7 +232,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>

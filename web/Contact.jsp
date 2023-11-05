@@ -51,7 +51,7 @@
             <!-- Breadcrumb Section Begin -->
 
             <!-- Map Section Begin -->
-            <div class="map spad">
+<!--            <div class="map spad">
                 <div class="container">
                     <div class="map-inner">
                         <iframe
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- Map Section Begin -->
 
             <!-- Contact Section Begin -->
@@ -111,16 +111,16 @@
                                 <div class="leave-comment">
                                     <h4>Leave A Comment</h4>
                                     <p>Our staff will call back later and answer your questions.</p>
-                                    <form action="#" class="comment-form">
+                                    <form action="contact" class="comment-form">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <input type="text" placeholder="Your name">
+                                                <input type="text" name="name" placeholder="Your name">
                                             </div>
                                             <div class="col-lg-6">
-                                                <input type="text" placeholder="Your email">
+                                                <input type="text" name="email" placeholder="Your email">
                                             </div>
                                             <div class="col-lg-12">
-                                                <textarea placeholder="Your message"></textarea>
+                                                <input type="text" name="mess" placeholder="Your message">                                              
                                                 <button type="submit" class="site-btn">Send message</button>
                                             </div>
                                         </div>

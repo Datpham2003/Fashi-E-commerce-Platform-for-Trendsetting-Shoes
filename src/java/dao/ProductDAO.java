@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.Contact;
 import model.brand;
 import model.cart;
 import model.category;
@@ -274,7 +275,7 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
-    public void updateProductSize(int product_id,String size,int quantity) {
+    public void updateProductSize(int product_id, String size, int quantity) {
         String querry = "update Product_Size\n"
                 + "set quantity = ?\n"
                 + "where product_id = ? and size = ?;";
@@ -283,13 +284,112 @@ public class ProductDAO extends DBContext {
             ps.setInt(1, quantity);
             ps.setInt(2, product_id);
             ps.setString(3, size);
-            ps.executeUpdate(); 
+            ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public List<product> checkProduct(int[] id) {
+        List<product> list = new ArrayList<>();
+        String sql = "select *from Product where 1 = 1";
+
+        if (id != null) {
+            sql += " and brand_id in (";
+        }
+        for (int i = 0; i < id.length; i++) {
+            sql += id[i] + ",";
+        }
+        if (sql.endsWith(",")) {
+            sql = sql.substring(0, sql.length() - 1);
+        }
+        sql += ")";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7)
+                ));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Contact> getAllContact() {
+        List<Contact> list = new ArrayList<>();
+        String sql = "select *from Contact";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Contact(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5)
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public List<product> getAllProductByCID(int cid) {
+        List<product> list = new ArrayList<>();
+        String sql = "select * from Product where category_id = ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, cid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+     public List<product> searchProductByName(String txtSearch) {
+        List<product> list = new ArrayList<>();
+        String sql = "select * from Product where product_name like ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 //    public static void main(String[] args) {
-//       
+//        ProductDAO dao = new ProductDAO();
+//        List<productSize> list = dao.getProductSize();
+//        for (productSize size : list) {
+//            System.out.println(size);
+//        }
 //    }
 }

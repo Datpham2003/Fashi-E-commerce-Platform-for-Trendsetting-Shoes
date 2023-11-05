@@ -1170,7 +1170,7 @@ ol {
 }
 
 .product-item .pi-pic img {
-    width: 100px; 
+    width: 100px;
     height: 100px;
 }
 
@@ -1233,10 +1233,9 @@ ol {
 }
 
 .product-large .set-bg img {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
 }
-
 
 .product-item .pi-text {
     text-align: center;
@@ -4316,62 +4315,31 @@ ol {
         padding-left: 15px;
         padding-right: 15px;
     }
-    
-}
 
-@media (min-width: 1025px) {
-.h-custom {
-height: 100vh !important;
-}
-}
+    .input-control input{
+        border: 2px solid #f3f3f3;
+        border-radius: 4px;
+        display: block;
+        font-size: 12px;
+        padding: 10px;
+        width: 100%;
+    }
 
-.horizontal-timeline .items {
-border-top: 2px solid #ddd;
-}
+    .input-control input:focus{
+        outline: 0;
+    }
 
-.horizontal-timeline .items .items-list {
-position: relative;
-margin-right: 0;
-}
+    .input-control.success input{
+        border-color: #34ce57;
+    }
 
-.horizontal-timeline .items .items-list:before {
-content: "";
-position: absolute;
-height: 8px;
-width: 8px;
-border-radius: 50%;
-background-color: #ddd;
-top: 0;
-margin-top: -5px;
-}
+    .input-control.error input{
+        border-color: #DC3232;
+    }
 
-.horizontal-timeline .items .items-list {
-padding-top: 15px;
-}
-
-.input-control input{
-    border: 2px solid #f3f3f3;
-    border-radius: 4px;
-    display: block;
-    font-size: 12px;
-    padding: 10px;
-    width: 100%;
-}
-
-.input-control input:focus{
-    outline: 0;
-}
-
-.input-control.success input{
-    border-color: #34ce57;
-}
-
-.input-control.error input{
-    border-color: #DC3232;
-}
-
-.input-control .error{
-    color: #DC3232;
-    font-size: 12px;
-    height: 10px;
+    .input-control .error{
+        color: #DC3232;
+        font-size: 12px;
+        height: 10px;
+    }
 }

@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -110,7 +109,13 @@
                                         <li class="subtotal">Subtotal <span>$${totalMoney}</span></li>
                                         <li class="cart-total">Total <span>$${totalMoney}</span></li>
                                     </ul>
+                                        <c:if test="${totalMoney == '0'}">
+                                            <a style="opacity:0.6;pointer-events: none " href="" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                        </c:if>
+                                    <!--                                    <a href="loadCheckOut" class="proceed-btn">PROCEED TO CHECK OUT</a>-->
+                                          <c:if test="${totalMoney != '0'}">
                                     <a href="loadCheckOut" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
@@ -133,6 +138,7 @@
         <script src="js/jquery.slicknav.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
+       
     </body>
 
 </html>

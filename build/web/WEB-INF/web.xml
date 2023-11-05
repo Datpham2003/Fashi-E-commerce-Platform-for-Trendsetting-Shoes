@@ -16,6 +16,43 @@
         <servlet-name>LoadTrackingController</servlet-name>
         <servlet-class>controller.LoadTrackingController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShipController</servlet-name>
+        <servlet-class>controller.ShipController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateShipController</servlet-name>
+        <servlet-class>controller.UpdateShipController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShipHisotyController</servlet-name>
+        <servlet-class>controller.ShipHistotyController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShipHistoryController</servlet-name>
+        <servlet-class>controller.ShipHistoryController</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>UpdateOrder</servlet-name>
+        <servlet-class>controller.UpdateOrder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrder</servlet-name>
+        <servlet-class>controller.DeleteOrder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactControl</servlet-name>
+        <servlet-class>controller.ContactControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckBoxProduct</servlet-name>
+        <servlet-class>controller.CheckBoxProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagerContact</servlet-name>
+        <servlet-class>controller.ManagerContact</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -32,9 +69,41 @@
         <servlet-name>LoadTrackingController</servlet-name>
         <url-pattern>/loadtracking</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShipController</servlet-name>
+        <url-pattern>/ship</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateShipController</servlet-name>
+        <url-pattern>/updateship</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShipHistoryController</servlet-name>
+        <url-pattern>/shiphistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrder</servlet-name>
+        <url-pattern>/updateorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrder</servlet-name>
+        <url-pattern>/deleteorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactControl</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckBoxProduct</servlet-name>
+        <url-pattern>/check</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerContact</servlet-name>
+        <url-pattern>/managercontact</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            100
         </session-timeout>
     </session-config>
     <welcome-file-list>
