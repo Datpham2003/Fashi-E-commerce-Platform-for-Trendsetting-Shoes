@@ -6,11 +6,9 @@
 package controller;
 
 import dao.AccountDAO;
-import dao.CartDAO;
 import dao.CheckOutDAO;
 import dao.ProductDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +17,6 @@ import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.OrderDetail;
 import model.account;
-import model.cart;
 import model.product;
 
 /**
@@ -31,7 +28,7 @@ public class LoadTrackingController extends HttpServlet {
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
-     * @param response servlet response
+     * @param response servlet response 
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */

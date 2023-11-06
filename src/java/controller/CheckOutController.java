@@ -82,7 +82,7 @@ public class CheckOutController extends HttpServlet {
             for (product p : listP) {
                 if (o.getProduct_id() == p.getProduct_id()) {
                     cdao.insertCheckOut(customer_id, name, o.getProduct_id(), o.getQuantity(), p.getProduct_price() * o.getQuantity(),
-                             Date.valueOf(LocalDate.now()), o.getProduct_size(), address, phone, note, coupon_code);
+                             Date.valueOf(LocalDate.now()), o.getProduct_size(), address+","+city+","+country, phone, note, coupon_code);
                 }
             }
         }

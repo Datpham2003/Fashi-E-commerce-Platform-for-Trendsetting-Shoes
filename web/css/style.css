@@ -1170,8 +1170,8 @@ ol {
 }
 
 .product-item .pi-pic img {
-    width: 100px;
-    height: 100px;
+    width: 1000px;
+    height: 500px;
 }
 
 .product-item .pi-pic .sale {
@@ -4316,7 +4316,9 @@ ol {
         padding-right: 15px;
     }
 
-    .input-control input{
+    
+}
+.input-control input{
         border: 2px solid #f3f3f3;
         border-radius: 4px;
         display: block;
@@ -4342,4 +4344,3 @@ ol {
         font-size: 12px;
         height: 10px;
     }
-}
