@@ -1170,8 +1170,8 @@ ol {
 }
 
 .product-item .pi-pic img {
-    width: 1000px;
-    height: 500px;
+    max-width: 1000px;
+    height: auto;
 }
 
 .product-item .pi-pic .sale {
@@ -1232,10 +1232,10 @@ ol {
     padding: 16px 18px 12px 19px;
 }
 
-.product-large .set-bg img {
+/*.product-large .set-bg img {
     max-width: 100%;
     height: auto;
-}
+}*/
 
 .product-item .pi-text {
     text-align: center;
