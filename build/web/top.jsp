@@ -136,13 +136,12 @@
                     <ul class="depart-hover">
                         <li class="active"><a href="#">Women’s Shoes</a></li>
                         <li><a href="#">Men’s Shoes</a></li>
-                        <li><a href="#">Accessories</a></li>
                     </ul>
                 </div>
             </div>
             <nav class="nav-menu mobile-menu">
                 <ul>
-                    <li><a href="home">Home</a></li>
+                    <li class="active"><a href="home">Home</a></li>
                     <li><a href="shop">Shop</a></li>
                     <li><a href="#">Collection</a>
                         <ul class="dropdown">
@@ -151,14 +150,12 @@
                             <li><a href="#">Kid's</a></li>
                         </ul>
                     </li>
-                    <li class="active"><a href="./blog.html">Blog</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
                     <li><a href="Contact.jsp">Contact</a></li>
                     <li><a href="#">Pages</a>
                         <ul class="dropdown">
-                            <li><a href="./blog-details.html">Blog Details</a></li>
                             <li><a href="managercart">Shopping Cart</a></li>
                             <li><a href="loadtracking">My Purchases</a></li>
-                            <li><a href="./faq.html">Faq</a></li>
                             <c:if test="${sessionScope.acc == null}">
                             <li><a href="./register.html">Register</a></li>
                             <li><a href="Login.jsp">Login</a></li>
@@ -193,4 +190,11 @@
 }
 
 </style>
+<script>
+  function toggleActive(id) {
+    var link = document.getElementById(id);
+    var isActive = link.classList.contains('active');
+    isActive ? link.classList.remove('active') : link.classList.add('active');
+  }
+</script>
 </header>

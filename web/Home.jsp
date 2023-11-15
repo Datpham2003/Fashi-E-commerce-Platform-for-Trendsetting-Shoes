@@ -180,7 +180,7 @@
                             <p>Secs</p>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">Shop Now</a>
+                    <a href="shop" class="primary-btn">Shop Now</a>
                 </div>
             </div>
         </section>
