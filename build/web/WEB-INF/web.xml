@@ -32,7 +32,7 @@
         <servlet-name>ShipHistoryController</servlet-name>
         <servlet-class>controller.ShipHistoryController</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>UpdateOrder</servlet-name>
         <servlet-class>controller.UpdateOrder</servlet-class>
     </servlet>
@@ -52,7 +52,14 @@
         <servlet-name>ManagerContact</servlet-name>
         <servlet-class>controller.ManagerContact</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>AddAmountCartController</servlet-name>
+        <servlet-class>controller.AddAmountCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubAmountCartController</servlet-name>
+        <servlet-class>controller.SubAmountCartController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -100,6 +107,14 @@
     <servlet-mapping>
         <servlet-name>ManagerContact</servlet-name>
         <url-pattern>/managercontact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAmountCartController</servlet-name>
+        <url-pattern>/addAmountCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubAmountCartController</servlet-name>
+        <url-pattern>/subAmountCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

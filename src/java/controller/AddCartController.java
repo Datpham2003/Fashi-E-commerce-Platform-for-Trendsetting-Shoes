@@ -8,7 +8,6 @@ import dao.AccountDAO;
 import dao.CartDAO;
 import dao.ProductDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -45,12 +44,13 @@ public class AddCartController extends HttpServlet {
 
         HttpSession session = request.getSession();
         account a = (account) session.getAttribute("acc");
+
+        int productID = Integer.parseInt(request.getParameter("pid"));
+
         if (a == null) {
             response.sendRedirect("Login.jsp");
             return;
         }
-
-        int productID = Integer.parseInt(request.getParameter("pid"));
 
         int account_id = adao.getAccountIDByUsername(a.getUsername());
 
@@ -69,7 +69,7 @@ public class AddCartController extends HttpServlet {
             productSize checkSize = pdao.getQuantityBySizeAndPID(productID, size);
             cart cartExisted = cdao.checkCartExist(customer_id, productID, size);
 
-            if (checkSize.getQuantity() < quantity) {
+            if (checkSize.getQuantity() < quantity || (cartExisted != null && (cartExisted.getQuantity() + quantity) > checkSize.getQuantity())) {
                 request.setAttribute("mess1", "OUT OF STOCK");
                 String bid = request.getParameter("bid");
                 String cid = request.getParameter("cid");
@@ -127,4 +127,3 @@ public class AddCartController extends HttpServlet {
     }// </editor-fold>
 
 }
-

@@ -37,18 +37,18 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        HttpSession session = request.getSession();
+        
         String username = request.getParameter("username");
         String password = request.getParameter("pass");
-
+        
         LoginDAO LoginDAO = new LoginDAO();
         account a = LoginDAO.checkLogin(username, password);
-
+        
         if (a == null) {
             request.setAttribute("mess", "Wrong username or pass");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
-            HttpSession session = request.getSession();
             session.setAttribute("acc", a);
             Cookie u = new Cookie("userC", username);
             Cookie p = new Cookie("passC", password);
@@ -56,9 +56,9 @@ public class LoginControl extends HttpServlet {
             p.setMaxAge(Integer.MAX_VALUE);
             response.addCookie(u);
             response.addCookie(p);
-
+            
+            int roleId = a.getIdRole(); // Assuming getRoleId() returns the role ID         
             // Redirect to appropriate page based on role
-            int roleId = a.getIdRole(); // Assuming getRoleId() returns the role ID
             switch (roleId) {
                 case 1:
                     response.sendRedirect("home"); // Replace "customerPage" with the appropriate URL for the customer page
@@ -80,7 +80,6 @@ public class LoginControl extends HttpServlet {
                     break;
             }
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

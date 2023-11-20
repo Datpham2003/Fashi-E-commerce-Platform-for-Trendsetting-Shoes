@@ -10,22 +10,18 @@ import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.List;
 import model.account;
-import model.cart;
-import model.product;
+import model.productSize;
 
 /**
  *
  * @author quang
  */
-@WebServlet(name = "ManagerCartController", urlPatterns = {"/managercart"})
-public class ManagerCartController extends HttpServlet {
+public class SubAmountCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,40 +35,39 @@ public class ManagerCartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            AccountDAO adao = new AccountDAO();
+            CartDAO cdao = new CartDAO();
+            ProductDAO pdao = new ProductDAO();
 
-        AccountDAO adao = new AccountDAO();
-        CartDAO cdao = new CartDAO();
-        ProductDAO pdao = new ProductDAO();
-
-        HttpSession session = request.getSession();
-        account a = (account) session.getAttribute("acc");
-        if (a == null) {
-            response.sendRedirect("LoginControl");
-            return;
-        }
-
-        int account_id = adao.getAccountIDByUsername(a.getUsername());
-
-        int customer_id = adao.getCustomerIDByAccountID(account_id);
-
-        List<cart> listC = cdao.getCartByCustomerID(customer_id);
-        List<product> listP = pdao.getAllProduct();
-
-        double totalMoney = 0;
-        for (cart o : listC) {
-            for (product p : listP) {
-                if (o.getProduct_id() == p.getProduct_id()) {
-                    totalMoney = totalMoney + (o.getQuantity() * p.getProduct_price());
-                }
+            HttpSession session = request.getSession();
+            account a = (account) session.getAttribute("acc");
+            if (a == null) {
+                response.sendRedirect("login");
+                return;
             }
+            int account_id = adao.getAccountIDByUsername(a.getUsername());
+
+            int customer_id = adao.getCustomerIDByAccountID(account_id);
+
+            int product_id = Integer.parseInt(request.getParameter("product_id"));
+
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+            String size = request.getParameter("size");
+
+            productSize checkSize = pdao.getQuantityBySizeAndPID(product_id, size);
+
+            if (quantity <= 1) {
+                request.setAttribute("err2", "Invalid");
+                request.getRequestDispatcher("managercart").forward(request, response);
+            } else {
+                quantity -= 1;
+                cdao.editAmountAndSizeCart(product_id, quantity, customer_id, size);
+                request.getRequestDispatcher("managercart").forward(request, response);
+            }
+
         }
-
-        request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
-        request.setAttribute("totalMoney", totalMoney);
-
-        request.getRequestDispatcher("ShoppingCart.jsp").forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -79,10 +79,16 @@
                                                     <td class="p-price first-row">${o.product_size}</td>
                                                     <td class="qua-col first-row">
                                                         <div class="quantity">
-                                                            <div class="pro-qty">
-                                                                <input type="text" value="${o.quantity}">
-                                                            </div>
+                                                            <a href="subAmountCart?product_id=${o.product_id}&quantity=${o.quantity}&size=${o.product_size}"><button class="btnSub">-</button></a> 
+                                                            <strong>${o.quantity}</strong>
+                                                            <a href="addAmountCart?product_id=${o.product_id}&quantity=${o.quantity}&size=${o.product_size}"><button class="btnAdd">+</button></a>
                                                         </div>
+                                                        <c:if test="${err1 != null}">
+                                                            <span style="color: red;">${err1}</span>
+                                                        </c:if>
+                                                        <c:if test="${err2 != null}">
+                                                            <span style="color: red;">${err2}</span>
+                                                        </c:if>    
                                                     </td>
                                                     <td class="total-price first-row">$${p.product_price*o.quantity}</td>
                                                     <td class="close-td first-row" >
@@ -109,12 +115,12 @@
                                         <li class="subtotal">Subtotal <span>$${totalMoney}</span></li>
                                         <li class="cart-total">Total <span>$${totalMoney}</span></li>
                                     </ul>
-                                        <c:if test="${totalMoney == '0'}">
-                                            <a style="opacity:0.6;pointer-events: none " href="" class="proceed-btn">PROCEED TO CHECK OUT</a>
-                                        </c:if>
+                                    <c:if test="${totalMoney == '0'}">
+                                        <a style="opacity:0.6;pointer-events: none " href="" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                    </c:if>
                                     <!--                                    <a href="loadCheckOut" class="proceed-btn">PROCEED TO CHECK OUT</a>-->
-                                          <c:if test="${totalMoney != '0'}">
-                                    <a href="loadCheckOut" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                    <c:if test="${totalMoney != '0'}">
+                                        <a href="loadCheckOut" class="proceed-btn">PROCEED TO CHECK OUT</a>
                                     </c:if>
                                 </div>
                             </div>
@@ -138,7 +144,7 @@
         <script src="js/jquery.slicknav.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
-       
+
     </body>
 
 </html>

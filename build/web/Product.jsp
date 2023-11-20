@@ -101,7 +101,7 @@
                             <div class="fw-size-choose">
                                 <c:forEach items="${listPS}" var="o">
                                     <div class="sc-item">
-                                        <input type="radio" id="s-size">
+                                        <input type="radio" id="s-size" class="active">
                                         <label for="size">${o}</label>
                                     </div>
                                 </c:forEach>    

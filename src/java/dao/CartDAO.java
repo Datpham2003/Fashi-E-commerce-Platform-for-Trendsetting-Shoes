@@ -133,8 +133,9 @@ public class CartDAO extends DBContext {
         }
     }
 
-    public static void main(String[] args) {
-        CartDAO dao = new CartDAO();
-       dao.insertContact("trung", "trung", "10d", 1);
-    }
+//    public static void main(String[] args) {
+//        CartDAO dao = new CartDAO();
+//        cart a = dao.checkCartExist(1, 1, "42");
+//        System.out.println(a);
+//    }
 }
