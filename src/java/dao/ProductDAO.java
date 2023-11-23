@@ -387,7 +387,9 @@ public class ProductDAO extends DBContext {
     }
 //    public static void main(String[] args) {
 //        ProductDAO dao = new ProductDAO();
-//        productSize a = dao.getQuantityBySizeAndPID(1, "42");
-//        System.out.println(a);
+//        List<product> list = dao.getAllProduct();
+//        for (product p : list) {
+//            System.out.println(p);
+//        }
 //    }
 }

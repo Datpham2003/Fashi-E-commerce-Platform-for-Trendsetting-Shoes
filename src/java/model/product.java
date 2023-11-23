@@ -86,10 +86,5 @@ public class product {
     public void setBrand_id(int brand_id) {
         this.brand_id = brand_id;
     }
-
-    @Override
-    public String toString() {
-        return "product{" + "product_id=" + product_id + ", product_image=" + product_image + ", product_name=" + product_name + ", product_price=" + product_price + ", product_description=" + product_description + ", cid=" + cid + ", brand_id=" + brand_id + '}';
-    }
-
+  
 }

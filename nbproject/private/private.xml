@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/src/java/controller/AddCartController.java</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/web/js/main.js</file>
             <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/src/java/dao/ProductDAO.java</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/src/java/controller/ManagerCartController.java</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/web/js/CheckOutValidate.js</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/web/ShoppingCart.jsp</file>
-            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/web/CheckOut.jsp</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/src/java/model/product.java</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/src/java/dao/AccountDAO.java</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/web/Shop.jsp</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/src/java/controller/LoginControl.java</file>
+            <file>file:/C:/Users/quang/OneDrive/Documents/Semester5/SWP/swp391_shoponl_full/swp391/web/Login.jsp</file>
         </group>
     </open-files>
 </project-private>
